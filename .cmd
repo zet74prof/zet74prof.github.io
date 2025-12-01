@@ -1,1 +1,0 @@
-mkdocs gh-deploy --config-file ../docs-sio/mkdocs.yml --remote-branch master
