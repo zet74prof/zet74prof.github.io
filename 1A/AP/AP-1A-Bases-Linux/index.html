@@ -133,26 +133,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#binbash" class="nav-link">!/bin/bash</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#definition-des-variables" class="nav-link">Définition des variables</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#affichage-dun-message" class="nav-link">Affichage d'un message</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#commande-de-compression-des-donnees" class="nav-link">Commande de compression des données</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
@@ -400,16 +380,16 @@
 </li>
 <li>
 <p><strong>Exemple de script simple (sauvegarde.sh) :</strong></p>
-<p>```bash</p>
-<h1 id="binbash">!/bin/bash</h1>
-<h1 id="definition-des-variables">Définition des variables</h1>
-<p>JOUR=$(date +%Y-%m-%d)
+<p>```bash
+#!/bin/bash</p>
+<p># Définition des variables
+JOUR=$(date +%Y-%m-%d)
 SOURCE_DIR="/var/www/site"
 DEST_DIR="/home/backup/web"</p>
-<h1 id="affichage-dun-message">Affichage d'un message</h1>
-<p>echo "--- Début de la sauvegarde du $JOUR ---"</p>
-<h1 id="commande-de-compression-des-donnees">Commande de compression des données</h1>
-<p>tar -czf "$DEST_DIR/web_backup_$JOUR.tar.gz" "$SOURCE_DIR"</p>
+<p># Affichage d'un message
+echo "--- Début de la sauvegarde du $JOUR ---"</p>
+<p># Commande de compression des données
+tar -czf "$DEST_DIR/web_backup_$JOUR.tar.gz" "$SOURCE_DIR"</p>
 <p>echo "Sauvegarde terminée et stockée dans $DEST_DIR"
 ```</p>
 </li>
