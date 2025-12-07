@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>AP 1A Bases Linux - zet74prof - Documentation</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">zet74prof - Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">SIO Docs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">1A</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">AP</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">AP 1A Bases Linux</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">B1</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Base du développement</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Epreuve semestrielle</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que/" class="dropdown-item">Entraînement : Application de gestion d'une bibliothèque</a>
+</li>
+            
+<li>
+    <a href="../../B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement2-hopital/" class="dropdown-item">Évaluation d'entraînement : Gestion des Rendez-Vous d'un Hôpital Public</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">2A</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">B1</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../2A/B1/B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/" class="dropdown-item">B1 2A TP Mise en place d'un pipeline CICD</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#bases-linux-sous-debian-sisr-1ere-annee" class="nav-link">🐧 Bases Linux sous Debian (SISR 1ère Année)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#binbash" class="nav-link">!/bin/bash</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#definition-des-variables" class="nav-link">Définition des variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#affichage-dun-message" class="nav-link">Affichage d'un message</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#commande-de-compression-des-donnees" class="nav-link">Commande de compression des données</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="bases-linux-sous-debian-sisr-1ere-annee">🐧 Bases Linux sous Debian (SISR 1ère Année)</h2>
+<h3 id="1-navigation-et-manipulation-de-fichiers-les-fondamentaux">1. Navigation et Manipulation de Fichiers (Les Fondamentaux)</h3>
+<p>Ces commandes sont la base de l'interaction avec le système de fichiers.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Commande</th>
+<th style="text-align: left;">Rôle</th>
+<th style="text-align: left;">Exemple</th>
+<th style="text-align: left;">Explication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>pwd</code></strong></td>
+<td style="text-align: left;"><strong>P</strong>rint <strong>W</strong>orking <strong>D</strong>irectory. Affiche le chemin absolu du répertoire courant.</td>
+<td style="text-align: left;"><code>pwd</code></td>
+<td style="text-align: left;">Savoir où l'on est dans l'arborescence.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ls</code></strong></td>
+<td style="text-align: left;"><strong>L</strong>i<strong>s</strong>t. Affiche le contenu d'un répertoire.</td>
+<td style="text-align: left;"><code>ls -lha</code></td>
+<td style="text-align: left;"><code>-l</code> (format long), <code>-h</code> (taille lisible), <code>-a</code> (tous les fichiers, y compris les cachés).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>cd</code></strong></td>
+<td style="text-align: left;"><strong>C</strong>hange <strong>D</strong>irectory. Permet de changer de répertoire.</td>
+<td style="text-align: left;"><code>cd /etc/apache2/</code></td>
+<td style="text-align: left;">Aller au répertoire de configuration d'Apache.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>mkdir</code></strong></td>
+<td style="text-align: left;"><strong>M</strong>a<strong>k</strong>e <strong>Dir</strong>ectory. Créer un nouveau répertoire.</td>
+<td style="text-align: left;"><code>mkdir -p /var/www/test</code></td>
+<td style="text-align: left;"><code>-p</code> permet de créer les répertoires parents s'ils n'existent pas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>touch</code></strong></td>
+<td style="text-align: left;">Crée un fichier vide ou met à jour la date d'accès/modification d'un fichier existant.</td>
+<td style="text-align: left;"><code>touch mon_script.sh</code></td>
+<td style="text-align: left;">Créer un nouveau script.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>cp</code></strong></td>
+<td style="text-align: left;"><strong>C</strong>o<strong>p</strong>y. Copier des fichiers ou des répertoires.</td>
+<td style="text-align: left;"><code>cp fichier.txt /tmp/</code></td>
+<td style="text-align: left;">Copier <code>fichier.txt</code> dans le répertoire <code>/tmp</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>mv</code></strong></td>
+<td style="text-align: left;"><strong>M</strong>o<strong>v</strong>e. Déplacer ou renommer des fichiers/répertoires.</td>
+<td style="text-align: left;"><code>mv old_name.txt new_name.txt</code></td>
+<td style="text-align: left;">Renommer le fichier.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>rm</code></strong></td>
+<td style="text-align: left;"><strong>R</strong>e<strong>m</strong>ove. Supprimer des fichiers.</td>
+<td style="text-align: left;"><code>rm -rf dossier</code></td>
+<td style="text-align: left;"><code>-r</code> (récursif, pour les dossiers), <code>-f</code> (force la suppression). <strong>ATTENTION DANGER !</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-gestion-des-droits-dacces-chmod-chown">2. Gestion des Droits d'Accès (Chmod &amp; Chown)</h3>
+<p>La sécurité Linux repose fondamentalement sur la gestion des droits d'accès. Chaque fichier et répertoire est associé à un <strong>propriétaire</strong> et à un <strong>groupe</strong>, et des permissions sont définies pour trois types d'utilisateurs :</p>
+<ol>
+<li><strong>u</strong>ser (Propriétaire du fichier)</li>
+<li><strong>g</strong>roup (Groupe du fichier)</li>
+<li><strong>o</strong>thers (Tous les autres utilisateurs)</li>
+</ol>
+<h4 id="21-les-permissions">2.1. Les Permissions</h4>
+<p>Il existe trois types de permissions, visualisées dans le format long de <code>ls -l</code> (ex: <code>-rwxr-xr--</code>):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Lettre</th>
+<th style="text-align: left;">Numérique (Octal)</th>
+<th style="text-align: left;">Rôle (Fichier)</th>
+<th style="text-align: left;">Rôle (Répertoire)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>r</strong></td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;"><strong>Read</strong> : Lire le contenu du fichier.</td>
+<td style="text-align: left;">Lister le contenu du répertoire.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>w</strong></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><strong>Write</strong> : Modifier ou supprimer le fichier.</td>
+<td style="text-align: left;">Créer, renommer ou supprimer des fichiers/répertoires dans ce répertoire.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>x</strong></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><strong>Execute</strong> : Exécuter le fichier (si c'est un programme ou un script).</td>
+<td style="text-align: left;">Y accéder (s'y déplacer avec <code>cd</code>).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="22-commande-chmod-change-mode">2.2. Commande <code>chmod</code> (CHange MODe)</h4>
+<p>Elle modifie les permissions d'un fichier ou d'un répertoire.</p>
+<ul>
+<li>
+<p><strong>Mode symbolique</strong> (Utilisation de <code>u</code>, <code>g</code>, <code>o</code>, <code>a</code> pour <strong>a</strong>ll) :</p>
+<ul>
+<li><code>chmod u+x mon_script.sh</code> : Ajoute le droit d'exécution au <strong>propriétaire</strong>.</li>
+<li><code>chmod go-w fichier.txt</code> : Retire le droit d'écriture au <strong>groupe</strong> et aux <strong>autres</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mode octal</strong> (Le plus précis pour le SISR) : On additionne les valeurs numériques ($4+2+1=7$) pour chaque catégorie.</p>
+<ul>
+<li><strong>$750$</strong> signifie :<ul>
+<li>Propriétaire : <strong>$7$</strong> (rwx)</li>
+<li>Groupe : <strong>$5$</strong> (r-x : lecture et exécution)</li>
+<li>Autres : <strong>$0$</strong> (--- : aucun droit)</li>
+</ul>
+</li>
+<li>Exemple : <code>chmod 750 mon_dossier</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="23-commande-chown-change-owner">2.3. Commande <code>chown</code> (CHange OWNer)</h4>
+<p>Elle modifie le propriétaire et/ou le groupe d'un fichier/répertoire.</p>
+<ul>
+<li><code>sudo chown user:group fichier</code><ul>
+<li><code>sudo chown prof_sio:adm_web /var/www/site</code> : Définit <code>prof_sio</code> comme propriétaire et <code>adm_web</code> comme groupe du répertoire.</li>
+<li><code>sudo chown -R www-data:www-data /var/www/html</code> : Change récursivement (<code>-R</code>) le propriétaire et le groupe de tous les fichiers d'un site à l'utilisateur et groupe d'Apache.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="3-gestion-des-privileges-et-des-services">3. Gestion des Privilèges et des Services</h3>
+<h4 id="31-commande-sudo-superuser-do">3.1. Commande <code>sudo</code> (SuperUser DO)</h4>
+<p><code>sudo</code> permet à un utilisateur autorisé d'exécuter une commande avec les privilèges d'un autre utilisateur, généralement l'utilisateur <strong>root</strong> (administrateur).</p>
+<ul>
+<li><strong>Rôle :</strong> Exécuter une commande critique (installation, redémarrage de service, modification de fichiers système) sans se connecter directement en <code>root</code>.</li>
+<li>Exemple : <code>sudo systemctl restart apache2</code></li>
+</ul>
+<h4 id="32-gestion-des-services-avec-systemctl">3.2. Gestion des Services avec <code>systemctl</code></h4>
+<p><code>systemctl</code> est l'outil standard (Systemd) pour gérer les services (ou démons) sur Debian 13 (Apache, SSH, MariaDB, etc.).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Commande</th>
+<th style="text-align: left;">Rôle</th>
+<th style="text-align: left;">Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>start</code></strong></td>
+<td style="text-align: left;">Démarre un service.</td>
+<td style="text-align: left;"><code>sudo systemctl start apache2</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>stop</code></strong></td>
+<td style="text-align: left;">Arrête un service.</td>
+<td style="text-align: left;"><code>sudo systemctl stop apache2</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>restart</code></strong></td>
+<td style="text-align: left;">Arrête puis redémarre un service (nécessaire après modification d'une configuration majeure).</td>
+<td style="text-align: left;"><code>sudo systemctl restart apache2</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>reload</code></strong></td>
+<td style="text-align: left;">Recharge la configuration sans interrompre les connexions existantes (si le service le supporte).</td>
+<td style="text-align: left;"><code>sudo systemctl reload apache2</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>status</code></strong></td>
+<td style="text-align: left;">Affiche l'état du service (actif, inactif, en échec) et les dernières lignes de log. <strong>Indispensable pour le diagnostic !</strong></td>
+<td style="text-align: left;"><code>systemctl status apache2</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>enable</code></strong></td>
+<td style="text-align: left;">Active le démarrage automatique du service au boot du système.</td>
+<td style="text-align: left;"><code>sudo systemctl enable apache2</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>disable</code></strong></td>
+<td style="text-align: left;">Désactive le démarrage automatique du service au boot.</td>
+<td style="text-align: left;"><code>sudo systemctl disable apache2</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-gestion-des-paquets-avec-apt">4. Gestion des Paquets avec <code>apt</code></h3>
+<p>Le système de gestion de paquets <strong>APT</strong> (Advanced Package Tool) est la méthode standard pour installer, mettre à jour et supprimer des logiciels sur Debian.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Commande</th>
+<th style="text-align: left;">Rôle</th>
+<th style="text-align: left;">Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>update</code></strong></td>
+<td style="text-align: left;">Met à jour la <strong>liste des paquets disponibles</strong> (l'index des dépôts). <strong>Toujours faire ceci en premier !</strong></td>
+<td style="text-align: left;"><code>sudo apt update</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>upgrade</code></strong></td>
+<td style="text-align: left;">Installe les versions plus récentes des paquets déjà installés.</td>
+<td style="text-align: left;"><code>sudo apt upgrade</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>install</code></strong></td>
+<td style="text-align: left;">Installe de nouveaux paquets.</td>
+<td style="text-align: left;"><code>sudo apt install mariadb-server</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>remove</code></strong></td>
+<td style="text-align: left;">Supprime un paquet (laisse les fichiers de configuration).</td>
+<td style="text-align: left;"><code>sudo apt remove apache2</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>purge</code></strong></td>
+<td style="text-align: left;">Supprime un paquet <strong>et</strong> ses fichiers de configuration. (Plus propre !)</td>
+<td style="text-align: left;"><code>sudo apt purge apache2</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-automatisation-scripts-shell-et-planification-cron">5. Automatisation : Scripts Shell et Planification (Cron)</h3>
+<p>L'administrateur SISR doit automatiser les tâches répétitives (sauvegardes, mises à jour, nettoyage).</p>
+<h4 id="51-ecrire-un-script-shell">5.1. Écrire un Script Shell</h4>
+<p>Un <strong>script shell</strong> est un fichier texte contenant une suite de commandes Linux qui seront exécutées séquentiellement.</p>
+<ol>
+<li>
+<p><strong>L'entête (Shebang) :</strong> La première ligne doit indiquer au système quel interpréteur utiliser. Pour Bash (le shell par défaut) :
+    <code>#!/bin/bash</code></p>
+</li>
+<li>
+<p><strong>Exemple de script simple (sauvegarde.sh) :</strong></p>
+<p>```bash</p>
+<h1 id="binbash">!/bin/bash</h1>
+<h1 id="definition-des-variables">Définition des variables</h1>
+<p>JOUR=$(date +%Y-%m-%d)
+SOURCE_DIR="/var/www/site"
+DEST_DIR="/home/backup/web"</p>
+<h1 id="affichage-dun-message">Affichage d'un message</h1>
+<p>echo "--- Début de la sauvegarde du $JOUR ---"</p>
+<h1 id="commande-de-compression-des-donnees">Commande de compression des données</h1>
+<p>tar -czf "$DEST_DIR/web_backup_$JOUR.tar.gz" "$SOURCE_DIR"</p>
+<p>echo "Sauvegarde terminée et stockée dans $DEST_DIR"
+```</p>
+</li>
+<li>
+<p><strong>Rendre le script exécutable</strong> :
+    <code>chmod u+x sauvegarde.sh</code></p>
+</li>
+</ol>
+<h4 id="52-planification-avec-cron">5.2. Planification avec <code>cron</code></h4>
+<p><strong><code>cron</code></strong> est le service d'ordonnancement de tâches (scheduler) qui permet d'exécuter des commandes ou des scripts à intervalles réguliers (minute, heure, jour, mois...). Les tâches sont définies dans la <strong>crontab</strong> (cron table).</p>
+<ul>
+<li><strong>Éditer votre crontab :</strong> <code>crontab -e</code></li>
+<li><strong>Format d'une ligne crontab :</strong>
+    <code>m h dom mon dow commande</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Champ</th>
+<th style="text-align: left;">Valeurs Possibles</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>m</strong></td>
+<td style="text-align: left;">$0-59$</td>
+<td style="text-align: left;"><strong>Minute</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>h</strong></td>
+<td style="text-align: left;">$0-23$</td>
+<td style="text-align: left;"><strong>Heure</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>dom</strong></td>
+<td style="text-align: left;">$1-31$</td>
+<td style="text-align: left;"><strong>Jour du Mois</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>mon</strong></td>
+<td style="text-align: left;">$1-12$</td>
+<td style="text-align: left;"><strong>Mois</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>dow</strong></td>
+<td style="text-align: left;">$0-7$</td>
+<td style="text-align: left;"><strong>Jour de la Semaine</strong> ($0$ ou $7$ = dimanche)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Exemple Crontab :</strong> Exécuter le script de sauvegarde tous les jours à 2h30 du matin.</p>
+<p><code>bash
+30 2 * * * /chemin/absolu/vers/sauvegarde.sh</code></p>
+<p>(<code>*</code> signifie "toutes les valeurs possibles").</p>
+</li>
+</ul>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
