@@ -375,20 +375,19 @@
 <p>Un <strong>script shell</strong> est un fichier texte contenant une suite de commandes Linux qui seront exécutées séquentiellement.</p>
 <ol>
 <li>
-<p><strong>L'entête (Shebang) :</strong> La première ligne doit indiquer au système quel interpréteur utiliser. Pour Bash (le shell par défaut) :
+<p><strong>L'entête :</strong> La première ligne doit indiquer au système quel interpréteur utiliser. Pour Bash (le shell par défaut) :
     <code>#!/bin/bash</code></p>
 </li>
 <li>
 <p><strong>Exemple de script simple (sauvegarde.sh) :</strong></p>
-<p>```bash
-#!/bin/bash</p>
-<p># Définition des variables
+<p><code>``</code>#`!/bin/bash</p>
+<p><code>#</code> Définition des variables
 JOUR=$(date +%Y-%m-%d)
 SOURCE_DIR="/var/www/site"
 DEST_DIR="/home/backup/web"</p>
-<p># Affichage d'un message
+<p><code>#</code> Affichage d'un message
 echo "--- Début de la sauvegarde du $JOUR ---"</p>
-<p># Commande de compression des données
+<p><code>#</code> Commande de compression des données
 tar -czf "$DEST_DIR/web_backup_$JOUR.tar.gz" "$SOURCE_DIR"</p>
 <p>echo "Sauvegarde terminée et stockée dans $DEST_DIR"
 ```</p>
