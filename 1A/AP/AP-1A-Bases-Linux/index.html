@@ -380,7 +380,8 @@
 </li>
 <li>
 <p><strong>Exemple de script simple (sauvegarde.sh) :</strong></p>
-<p>#!/bin/bash</p>
+<p>```
+#!/bin/bash</p>
 <p><code># Définition des variables</code>
 JOUR=$(date +%Y-%m-%d)
 SOURCE_DIR="/var/www/site"
@@ -389,7 +390,8 @@ DEST_DIR="/home/backup/web"</p>
 echo "--- Début de la sauvegarde du $JOUR ---"</p>
 <p><code># Commande de compression des données</code>
 tar -czf "$DEST_DIR/web_backup_$JOUR.tar.gz" "$SOURCE_DIR"</p>
-<p>echo "Sauvegarde terminée et stockée dans $DEST_DIR"</p>
+<p>echo "Sauvegarde terminée et stockée dans $DEST_DIR"
+```</p>
 </li>
 <li>
 <p><strong>Rendre le script exécutable</strong> :
