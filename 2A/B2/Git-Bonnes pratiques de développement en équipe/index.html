@@ -1,0 +1,1435 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../B1/B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Git Bonnes pratiques de développement en équipe - zet74prof - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#travailler-en-equipe-avec-git-workflow-et-bonnes-pratiques" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="zet74prof - Documentation" class="md-header__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zet74prof - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git Bonnes pratiques de développement en équipe
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="zet74prof - Documentation" class="md-nav__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zet74prof - Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIO Docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/AP/AP-1A-Bases-Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP 1A Bases Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base du développement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Base du développement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_1" id="__nav_2_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Epreuve semestrielle
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Epreuve semestrielle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entraînement : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement2-hopital/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Évaluation d'entraînement : Gestion des Rendez-Vous d'un Hôpital Public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../B1/B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 2A TP Mise en place d'un pipeline CICD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Bonnes pratiques de développement en équipe
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Bonnes pratiques de développement en équipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#travailler-en-equipe-avec-git-workflow-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travailler en Équipe avec Git : Workflow et Bonnes Pratiques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Travailler en Équipe avec Git : Workflow et Bonnes Pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-le-modele-de-branche-par-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 🌿 Le Modèle de Branche par Feature
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 🌿 Le Modèle de Branche par Feature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-et-travailler-sur-sa-branche-de-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer et Travailler sur sa Branche de Feature
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-suivre-levolution-des-collegues-integration-de-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 🤝 Suivre l'Évolution des Collègues : Intégration de Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 🤝 Suivre l&#39;Évolution des Collègues : Intégration de Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrer-la-branche-main-dans-sa-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intégrer la Branche main dans sa Feature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrer-le-code-dune-branche-collegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intégrer le Code d'une Branche Collègue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-le-pull-request-pr-revue-et-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Le Pull Request (PR) : Revue et Intégration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Le Pull Request (PR) : Revue et Intégration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-cles-du-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes Clés du Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gerer-les-conflits-de-fusion-merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 💥 Gérer les Conflits de Fusion (Merge Conflicts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 💥 Gérer les Conflits de Fusion (Merge Conflicts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-de-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes de Résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-bonnes-pratiques-de-travail-en-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ✅ Bonnes Pratiques de Travail en Équipe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#travailler-en-equipe-avec-git-workflow-et-bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travailler en Équipe avec Git : Workflow et Bonnes Pratiques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Travailler en Équipe avec Git : Workflow et Bonnes Pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-le-modele-de-branche-par-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 🌿 Le Modèle de Branche par Feature
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 🌿 Le Modèle de Branche par Feature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-et-travailler-sur-sa-branche-de-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer et Travailler sur sa Branche de Feature
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-suivre-levolution-des-collegues-integration-de-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 🤝 Suivre l'Évolution des Collègues : Intégration de Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 🤝 Suivre l&#39;Évolution des Collègues : Intégration de Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrer-la-branche-main-dans-sa-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intégrer la Branche main dans sa Feature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrer-le-code-dune-branche-collegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intégrer le Code d'une Branche Collègue
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-le-pull-request-pr-revue-et-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Le Pull Request (PR) : Revue et Intégration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Le Pull Request (PR) : Revue et Intégration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-cles-du-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes Clés du Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gerer-les-conflits-de-fusion-merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 💥 Gérer les Conflits de Fusion (Merge Conflicts)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 💥 Gérer les Conflits de Fusion (Merge Conflicts)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etapes-de-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes de Résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-bonnes-pratiques-de-travail-en-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ✅ Bonnes Pratiques de Travail en Équipe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Git Bonnes pratiques de développement en équipe</h1>
+
+<h2 id="travailler-en-equipe-avec-git-workflow-et-bonnes-pratiques">Travailler en Équipe avec Git : Workflow et Bonnes Pratiques</h2>
+<p>Ce guide est conçu pour vous aider à passer de l'utilisation de base de Git à un <strong>workflow d'équipe</strong> efficace, centré sur les branches de <em>feature</em>.</p>
+<h3 id="1-le-modele-de-branche-par-feature">1. 🌿 Le Modèle de Branche par <em>Feature</em></h3>
+<p>Le principe est simple : la branche principale (<strong><code>main</code></strong> ou <strong><code>master</code></strong>) doit toujours contenir un code <strong>stable</strong> et <strong>déployable</strong>. Tout nouveau développement (une <em>feature</em>, une correction de bogue, une amélioration) doit se faire dans une <strong>branche dédiée</strong>.</p>
+<h4 id="creer-et-travailler-sur-sa-branche-de-feature">Créer et Travailler sur sa Branche de <em>Feature</em></h4>
+<ol>
+<li>
+<p><strong>Mettre à jour la branche principale</strong> : Assurez-vous d'avoir la dernière version du code stable avant de commencer.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Créer la branche de <em>feature</em></strong> : Donnez-lui un nom descriptif (exemples : <code>feature/login-form</code>, <code>fix/bug-reporting</code>).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/nom-de-ma-feature
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Développer et Committer</strong> : Travaillez sur votre <em>feature</em>, faites des <em>commits</em> fréquents et significatifs.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Après avoir modifié des fichiers</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: ajouter le formulaire de connexion&quot;</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Publier la branche</strong> : Envoyez votre branche vers le dépôt distant (ex: GitHub, GitLab, Bitbucket).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/nom-de-ma-feature
+</span></code></pre></div>
+</li>
+</ol>
+<hr />
+<h3 id="2-suivre-levolution-des-collegues-integration-de-code">2. 🤝 Suivre l'Évolution des Collègues : Intégration de Code</h3>
+<p>Il est essentiel de garder votre branche de <em>feature</em> <strong>à jour</strong> avec la branche <code>main</code> et, parfois, avec le travail d'un collègue, pour éviter d'énormes conflits plus tard.</p>
+<h4 id="integrer-la-branche-main-dans-sa-feature">Intégrer la Branche <code>main</code> dans sa <em>Feature</em></h4>
+<p>Avant de faire votre <em>pull request</em> finale, ou même en cours de développement, vous devez récupérer les dernières mises à jour de <code>main</code>.</p>
+<ol>
+<li>
+<p><strong>Récupérer les changements distants</strong> :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Intégrer les changements</strong> (utiliser de préférence <code>rebase</code> pour un historique plus propre) :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>feature/nom-de-ma-feature
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Ou l&#39;approche plus simple (mais moins propre)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># git merge origin/main</span>
+</span></code></pre></div>
+</li>
+</ol>
+<h4 id="integrer-le-code-dune-branche-collegue">Intégrer le Code d'une Branche Collègue</h4>
+<p>Si vous devez travailler avec le code d'un collègue qui n'est pas encore dans <code>main</code> (par exemple, si votre <em>feature</em> dépend de la sienne) :</p>
+<ol>
+<li>
+<p><strong>Récupérer leur branche distante</strong> :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Intégrer leur branche</strong> :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>merge<span class="w"> </span>origin/feature/branche-du-collegue
+</span></code></pre></div>
+<p><em>Note : Soyez très prudent avec cette méthode et privilégiez autant que possible de baser votre travail uniquement sur <code>main</code>.</em></p>
+</li>
+</ol>
+<hr />
+<h3 id="3-le-pull-request-pr-revue-et-integration">3. Le <em>Pull Request</em> (PR) : Revue et Intégration</h3>
+<p>Un <em>Pull Request</em> (ou <em>Merge Request</em>) est la méthode formelle pour demander à ce que le code de votre branche soit <strong>revu</strong> et <strong>fusionné</strong> dans la branche <code>main</code>.</p>
+<h4 id="etapes-cles-du-pull-request">Étapes Clés du <em>Pull Request</em></h4>
+<ol>
+<li>
+<p><strong>Nettoyage final</strong> : Assurez-vous que votre <em>feature</em> est complète, que tous les tests passent, et que vous avez résolu tous les conflits avec <code>main</code> (voir section 4).</p>
+</li>
+<li>
+<p><strong>Créer le PR</strong> : Rendez-vous sur la plateforme web (GitHub, etc.). Elle vous proposera souvent de créer un PR pour votre branche récemment <em>pushée</em>.</p>
+<ul>
+<li><strong>Base</strong> : <code>main</code></li>
+<li><strong>Comparaison</strong> : <code>feature/nom-de-ma-feature</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Rédiger la description</strong> :</p>
+<ul>
+<li>Expliquez <strong>ce que</strong> fait la <em>feature</em>.</li>
+<li>Mentionnez <strong>pourquoi</strong> elle est nécessaire.</li>
+<li>Listez les changements importants.</li>
+<li>Référencez les tâches (tickets Jira, etc.) correspondantes.</li>
+</ul>
+</li>
+<li>
+<p><strong>La Revue de Code</strong> : Un ou plusieurs collègues vont relire votre code, suggérer des améliorations ou des corrections.</p>
+<ul>
+<li><strong>Répondre aux commentaires</strong> : Faites les ajustements nécessaires dans votre branche.</li>
+<li><strong>Pousser les ajustements</strong> : Chaque <em>push</em> mettra à jour le PR automatiquement.</li>
+</ul>
+<!-- end list -->
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/nom-de-ma-feature
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Fusion (Merge)</strong> : Une fois approuvé, le PR est fusionné dans <code>main</code>. <strong>Seuls les mainteneurs/chefs de projet</strong> devraient effectuer cette étape. La branche de <em>feature</em> peut ensuite être <strong>supprimée</strong> (localement et à distance).</p>
+</li>
+</ol>
+<hr />
+<h3 id="4-gerer-les-conflits-de-fusion-merge-conflicts">4. 💥 Gérer les Conflits de Fusion (<em>Merge Conflicts</em>)</h3>
+<p>Un conflit se produit lorsque deux développeurs ont modifié <strong>les mêmes lignes</strong> dans le <strong>même fichier</strong>. Git ne sait pas quelle version choisir.</p>
+<h4 id="etapes-de-resolution">Étapes de Résolution</h4>
+<ol>
+<li>
+<p><strong>Identifier le conflit</strong> : Après un <code>git merge</code> ou <code>git rebase</code>, Git vous informera qu'il y a des conflits.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>CONFLICT<span class="w"> </span><span class="o">(</span>content<span class="o">)</span>:<span class="w"> </span>Merge<span class="w"> </span>conflict<span class="w"> </span><span class="k">in</span><span class="w"> </span>chemin/du/fichier.js
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Ouvrir le fichier</strong> : Les conflits sont marqués par des séparateurs :</p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="w"> </span><span class="nx">HEAD</span><span class="w"> </span><span class="p">(</span><span class="nx">ou</span><span class="w"> </span><span class="nx">nom</span><span class="o">-</span><span class="nx">de</span><span class="o">-</span><span class="nx">ma</span><span class="o">-</span><span class="nx">branche</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">// Mon code : nouvelle fonction de calcul</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">calculate</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="o">=======</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">// Code du collègue/de main</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="kd">function</span><span class="w"> </span><span class="nx">calculate</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="w"> </span><span class="nx">origin</span><span class="o">/</span><span class="nx">main</span><span class="w"> </span><span class="p">(</span><span class="nx">ou</span><span class="w"> </span><span class="nx">branche</span><span class="o">-</span><span class="nx">du</span><span class="o">-</span><span class="nx">collegue</span><span class="p">)</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Résoudre manuellement</strong> : <strong>Éditez le fichier</strong> pour ne conserver que la version correcte, ou un mélange des deux. Vous devez supprimer les lignes <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, et <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</p>
+</li>
+<li>
+<p><strong>Marquer comme résolu</strong> :</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>add<span class="w"> </span>chemin/du/fichier.js
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Finaliser l'opération</strong> :</p>
+<ul>
+<li>Si vous étiez en <code>merge</code> :
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Merge branch &#39;main&#39; into feature/...&quot;</span>
+</span></code></pre></div></li>
+<li>Si vous étiez en <code>rebase</code> :
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>rebase<span class="w"> </span>--continue
+</span></code></pre></div></li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="5-bonnes-pratiques-de-travail-en-equipe">5. ✅ Bonnes Pratiques de Travail en Équipe</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Pratique</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Commandes Clés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Atomicité des Commits</strong></td>
+<td style="text-align: left;">Chaque <em>commit</em> doit représenter un changement <strong>logique unique</strong> et complet.</td>
+<td style="text-align: left;"><code>git commit -m "fix: corriger l'affichage du menu"</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Messages Clairs</strong></td>
+<td style="text-align: left;">Utilisez un format standard (<code>type: sujet</code>). Le sujet doit être concis (ex: <code>feat</code>, <code>fix</code>, <code>refactor</code>).</td>
+<td style="text-align: left;"><code>git commit -m "feat: ajouter la validation côté client"</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Petits PR</strong></td>
+<td style="text-align: left;">Visez des <em>Pull Requests</em> qui ne dépassent pas quelques centaines de lignes de changement. C'est plus facile à revoir et moins risqué.</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Synchronisation Fréquente</strong></td>
+<td style="text-align: left;">Intégrez <code>main</code> régulièrement dans votre branche (<em>rebase</em> si possible) pour minimiser les conflits.</td>
+<td style="text-align: left;"><code>git rebase origin/main</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ne pas <em>Rebase</em> les Branches Publiées</strong></td>
+<td style="text-align: left;">Évitez de <em>rebase</em> ou de réécrire l'historique d'une branche que d'autres personnes utilisent déjà.</td>
+<td style="text-align: left;"><strong>Règle d'or</strong> : ne jamais faire <code>git push -f</code> sur <code>main</code> ou une branche partagée.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nettoyer les Branches</strong></td>
+<td style="text-align: left;">Supprimez les branches de <em>feature</em> après qu'elles ont été fusionnées.</td>
+<td style="text-align: left;"><code>git branch -d feature/ancienne-feature</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tests (CI/CD)</strong></td>
+<td style="text-align: left;">Ne pas fusionner un PR qui a fait échouer les tests automatiques (s'ils sont en place).</td>
+<td style="text-align: left;">N/A</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
