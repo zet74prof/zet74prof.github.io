@@ -1,0 +1,2027 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/glossaire/">
+      
+      
+        <link rel="next" href="../B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Cours de Gestion de Projet - zet74prof - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cours-de-gestion-de-projet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="zet74prof - Documentation" class="md-header__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zet74prof - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cours de Gestion de Projet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="zet74prof - Documentation" class="md-nav__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zet74prof - Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIO Docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/AP/AP-1A-Bases-Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP 1A Bases Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base du développement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Base du développement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_1" id="__nav_2_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Epreuve semestrielle
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Epreuve semestrielle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que-corrige%CC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrigé : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entraînement : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement2-hopital-corrige%CC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrainement2 hopital corrigé
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement2-hopital/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Évaluation d'entraînement : Gestion des Rendez-Vous d'un Hôpital Public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/glossaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours de Gestion de Projet
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours de Gestion de Projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-1-gestion-de-projet-methode-classique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 1 : GESTION DE PROJET (Méthode Classique)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 1 : GESTION DE PROJET (Méthode Classique)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-notions-fondamentales-et-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. Notions Fondamentales et Définitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-le-processus-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. Le Processus Projet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="II. Le Processus Projet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-le-point-de-depart-fixer-lobjectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le Point de départ : Fixer l'objectif
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-identifier-les-acteurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Identifier les acteurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-le-plan-de-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Le Plan de Communication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-le-cahier-des-charges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Le Cahier des Charges
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-la-planification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. La Planification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="III. La Planification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-le-wbs-work-breakdown-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Le WBS (Work Breakdown Structure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-livrables-et-jalons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Livrables et Jalons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-charge-vs-duree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Charge vs Durée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-les-dependances-et-le-chemin-critique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) Les dépendances et le Chemin Critique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-gestion-des-couts-qualite-risques-et-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV. Gestion des Coûts, Qualité, Risques et Équipe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v-la-cloture-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V. La Clôture du Projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-2-gestion-de-projet-agile-framework-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 2 : GESTION DE PROJET AGILE (FRAMEWORK SCRUM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 2 : GESTION DE PROJET AGILE (FRAMEWORK SCRUM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-la-philosophie-une-approche-iterative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. La Philosophie : Une approche itérative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-les-3-roles-scrum-lequipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. Les 3 Rôles Scrum (L'Équipe)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="II. Les 3 Rôles Scrum (L&#39;Équipe)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-le-product-owner-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le Product Owner (PO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-le-scrum-master-sm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Le Scrum Master (SM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lequipe-de-developpement-dev-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. L'Équipe de Développement (Dev Team)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-les-artefacts-les-outils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. Les Artefacts (Les Outils)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="III. Les Artefacts (Les Outils)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-les-user-stories-recits-utilisateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Les User Stories (Récits Utilisateur)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-le-product-backlog-carnet-de-produit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Le Product Backlog (Carnet de produit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-le-sprint-backlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Le Sprint Backlog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-lincrement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. L'Incrément
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-les-rituels-le-rythme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV. Les Rituels (Le Rythme)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IV. Les Rituels (Le Rythme)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sprint-planning-planification-de-sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sprint Planning (Planification de Sprint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-daily-scrum-melee-quotidienne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Daily Scrum (Mêlée Quotidienne)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sprint-review-revue-de-sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sprint Review (Revue de Sprint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-sprint-retrospective-retrospective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Sprint Retrospective (Rétrospective)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableau-comparatif-gestion-de-projet-classique-vs-agile-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau Comparatif : Gestion de Projet Classique vs Agile (Scrum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 2A TP Mise en place d'un pipeline CICD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../B2/Git-Bonnes%20pratiques%20de%20d%C3%A9veloppement%20en%20%C3%A9quipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Bonnes pratiques de développement en équipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-1-gestion-de-projet-methode-classique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 1 : GESTION DE PROJET (Méthode Classique)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 1 : GESTION DE PROJET (Méthode Classique)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-notions-fondamentales-et-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. Notions Fondamentales et Définitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-le-processus-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. Le Processus Projet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="II. Le Processus Projet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-le-point-de-depart-fixer-lobjectif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le Point de départ : Fixer l'objectif
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-identifier-les-acteurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Identifier les acteurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-le-plan-de-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Le Plan de Communication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-le-cahier-des-charges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Le Cahier des Charges
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-la-planification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. La Planification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="III. La Planification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-le-wbs-work-breakdown-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Le WBS (Work Breakdown Structure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-livrables-et-jalons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Livrables et Jalons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-charge-vs-duree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Charge vs Durée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-les-dependances-et-le-chemin-critique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) Les dépendances et le Chemin Critique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-gestion-des-couts-qualite-risques-et-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV. Gestion des Coûts, Qualité, Risques et Équipe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v-la-cloture-du-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        V. La Clôture du Projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-2-gestion-de-projet-agile-framework-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MODULE 2 : GESTION DE PROJET AGILE (FRAMEWORK SCRUM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODULE 2 : GESTION DE PROJET AGILE (FRAMEWORK SCRUM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-la-philosophie-une-approche-iterative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. La Philosophie : Une approche itérative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-les-3-roles-scrum-lequipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. Les 3 Rôles Scrum (L'Équipe)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="II. Les 3 Rôles Scrum (L&#39;Équipe)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-le-product-owner-po" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le Product Owner (PO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-le-scrum-master-sm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Le Scrum Master (SM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lequipe-de-developpement-dev-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. L'Équipe de Développement (Dev Team)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-les-artefacts-les-outils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. Les Artefacts (Les Outils)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="III. Les Artefacts (Les Outils)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-les-user-stories-recits-utilisateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Les User Stories (Récits Utilisateur)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-le-product-backlog-carnet-de-produit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Le Product Backlog (Carnet de produit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-le-sprint-backlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Le Sprint Backlog
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-lincrement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. L'Incrément
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-les-rituels-le-rythme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV. Les Rituels (Le Rythme)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IV. Les Rituels (Le Rythme)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sprint-planning-planification-de-sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sprint Planning (Planification de Sprint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-daily-scrum-melee-quotidienne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Daily Scrum (Mêlée Quotidienne)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sprint-review-revue-de-sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sprint Review (Revue de Sprint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-sprint-retrospective-retrospective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Sprint Retrospective (Rétrospective)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableau-comparatif-gestion-de-projet-classique-vs-agile-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau Comparatif : Gestion de Projet Classique vs Agile (Scrum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cours-de-gestion-de-projet">Cours de Gestion de Projet</h1>
+<p>Ce cours couvre les fondamentaux de la gestion de projet</p>
+<hr />
+<h2 id="module-1-gestion-de-projet-methode-classique">MODULE 1 : GESTION DE PROJET (Méthode Classique)</h2>
+<h3 id="i-notions-fondamentales-et-definitions">I. Notions Fondamentales et Définitions</h3>
+<p>[cite_start]Pour réussir un projet, il faut répondre aux objectifs du maître d'ouvrage (coûts, qualité, délais) et satisfaire les besoins du client [cite: 39-42].</p>
+<p><strong>Les Rôles Clés :</strong>
+* [cite_start]<strong>MOA (Maîtrise d'Ouvrage) :</strong> C'est le "Sponsor"[cite: 31]. [cite_start]Il définit le besoin et fixe le cadre des travaux[cite: 36, 37].
+* [cite_start]<strong>MOE (Maîtrise d'Œuvre) :</strong> C'est le "Chef de Projet"[cite: 32]. [cite_start]Il réalise le projet et rend des comptes à la MOA[cite: 34].</p>
+<p><strong>Compétences du Chef de Projet :</strong>
+Pour réussir, le chef de projet doit posséder :
+1.  [cite_start]Des connaissances techniques et fonctionnelles[cite: 19].
+2.  [cite_start]Une connaissance de l'environnement[cite: 20].
+3.  [cite_start]Un savoir-faire relationnel : savoir communiquer, négocier, gérer les conflits, décider et fédérer[cite: 21].
+4.  [cite_start]Une capacité d'organisation et de délégation[cite: 27, 29].</p>
+<h3 id="ii-le-processus-projet">II. Le Processus Projet</h3>
+<p>[cite_start]Le cycle de vie d'un projet classique se décompose en 4 phases [cite: 43-48] :
+1.  <strong>Démarrage</strong>
+2.  <strong>Planification</strong>
+3.  <strong>Exécution</strong>
+4.  <strong>Clôture</strong></p>
+<h4 id="1-le-point-de-depart-fixer-lobjectif">1. Le Point de départ : Fixer l'objectif</h4>
+<p>[cite_start]L'objectif naît d'un besoin client traduit en réalité par la MOE [cite: 53-56]. [cite_start]Il doit être <strong>SMART</strong>[cite: 57]:
+* <strong>S</strong>pécifique
+* <strong>M</strong>esurable
+* <strong>A</strong>tteignable
+* <strong>R</strong>éaliste
+* <strong>T</strong>emporellement borné</p>
+<blockquote>
+<p><strong>Exemple concret :</strong>
+[cite_start]<em>Mauvais objectif :</em> "Swapper un maximum de sites BTS avec un minimum d'échecs." [cite: 60-62]
+[cite_start]<em>Objectif SMART :</em> "Swapper 1500 sites BTS en 18 mois avec moins de 3% d'échecs sur la région Rhône-Alpes." [cite: 67, 68]</p>
+</blockquote>
+<h4 id="2-identifier-les-acteurs">2. Identifier les acteurs</h4>
+<p>[cite_start]Il faut cartographier les acteurs (clients, sponsors, ressources, législateur, etc.)[cite: 78, 79]. [cite_start]Pour chaque acteur, on définit sa mission, sa position, ses enjeux, ses atouts et sa stratégie [cite: 80-87].</p>
+<h4 id="3-le-plan-de-communication">3. Le Plan de Communication</h4>
+<p>[cite_start]Il est crucial d'établir qui doit être informé, de quoi, quand et comment[cite: 89, 90].</p>
+<h4 id="4-le-cahier-des-charges">4. Le Cahier des Charges</h4>
+<p>[cite_start]Document contractuel signé par la MOA et la MOE[cite: 100, 101]. Il décrit :
+* [cite_start]Les besoins fonctionnels[cite: 108].
+* [cite_start]Le calendrier (début, fin, jalons) [cite: 110-112].
+* [cite_start]Le contexte et les objectifs[cite: 113].
+* [cite_start]Ce qui est exclu du périmètre[cite: 114].
+* [cite_start]<em>Note : Il protège la MOE contre l'ajout de fonctionnalités sans avenant [cite: 105-107].</em></p>
+<h3 id="iii-la-planification">III. La Planification</h3>
+<h4 id="a-le-wbs-work-breakdown-structure">a) Le WBS (Work Breakdown Structure)</h4>
+<p>[cite_start]C'est la Structure de Découpage du Projet [cite: 117-120]. [cite_start]Plus on descend dans l'arborescence, plus on détaille les unités de travail [cite: 122-124].</p>
+<h4 id="b-livrables-et-jalons">b) Livrables et Jalons</h4>
+<ul>
+<li>[cite_start]<strong>Livrable :</strong> Tout résultat mesurable et vérifiable (document, produit, etc.)[cite: 130].</li>
+<li>[cite_start]<strong>Jalon :</strong> Date clé permettant de mesurer la progression (réunion, décision, validation)[cite: 130, 131].</li>
+</ul>
+<h4 id="c-charge-vs-duree">c) Charge vs Durée</h4>
+<ul>
+<li>[cite_start]<strong>Charge :</strong> Temps nécessaire pour effectuer la tâche (effort)[cite: 134].</li>
+<li>[cite_start]<strong>Durée :</strong> Temps alloué pour accomplir la tâche (délai calendaire)[cite: 135].</li>
+</ul>
+<blockquote>
+<p>[cite_start]<strong>Calcul :</strong> $\text{Durée} = \frac{\text{Charge}}{\text{Ressources utilisées}}$[cite: 136, 137].
+[cite_start]<em>Exemple :</em> Une tâche de 3 jours-homme réalisée par une personne à 50% prendra une durée de 6 jours [cite: 138-143].</p>
+</blockquote>
+<h4 id="d-les-dependances-et-le-chemin-critique">d) Les dépendances et le Chemin Critique</h4>
+<p>[cite_start]Il existe plusieurs types de liens entre les tâches (Fin-Début, Fin-Fin, Début-Fin, Début-Début)[cite: 151, 152].
+* [cite_start]<strong>PERT :</strong> Outil d'analyse pour établir le chemin critique (la séquence de tâches qui détermine la durée minimale du projet)[cite: 161, 165].
+* [cite_start]<strong>Gantt :</strong> Outil de planification visuelle temporelle[cite: 166, 167].</p>
+<h3 id="iv-gestion-des-couts-qualite-risques-et-equipe">IV. Gestion des Coûts, Qualité, Risques et Équipe</h3>
+<ol>
+<li>[cite_start]<strong>Coûts :</strong> Gérer les coûts internes (hommes, machines) et externes (sous-traitants) [cite: 170-172].</li>
+<li>[cite_start]<strong>Qualité :</strong> Mettre en place des indicateurs et tableaux de contrôle[cite: 174, 175].</li>
+<li><strong>Risques :</strong> Identifier les événements incertains à impact négatif ou positif. [cite_start]Il faut évaluer leur probabilité et impact, et prévoir un plan d'action [cite: 177-183, 189].</li>
+<li>[cite_start]<strong>Équipe :</strong> Valoriser le travail, définir les rôles clairement et savoir déléguer (cf. Pyramide de Maslow) [cite: 191-199].</li>
+</ol>
+<h3 id="v-la-cloture-du-projet">V. La Clôture du Projet</h3>
+<p>[cite_start]Étape essentielle souvent oubliée[cite: 211, 212]. Elle sert à :
+* [cite_start]Préparer l'exploitation et la maintenance[cite: 213].
+* [cite_start]Valoriser les réussites et compétences acquises[cite: 215, 216].
+* [cite_start]Capitaliser sur l'expérience (documentation, bilan) [cite: 219-221].</p>
+<p>Voici une version enrichie et détaillée du <strong>Module 1 bis</strong>, intégrant les standards du framework Scrum (Rôles, Artefacts, Rituels) pour compléter les notions introductives présentes dans votre document manuscrit.</p>
+<hr />
+<h2 id="module-2-gestion-de-projet-agile-framework-scrum">MODULE 2 : GESTION DE PROJET AGILE (FRAMEWORK SCRUM)</h2>
+<p>[cite_start]Ce module détaille la méthodologie Agile/Scrum, évoquée comme alternative à la méthode classique dans le cours[cite: 16, 223]. Elle est particulièrement adaptée aux projets où le besoin évolue ou n'est pas totalement défini au départ.</p>
+<h3 id="i-la-philosophie-une-approche-iterative">I. La Philosophie : Une approche itérative</h3>
+<p>[cite_start]Contrairement à la méthode classique (dite "en cascade") où l'on rédige un cahier des charges exhaustif avant de commencer[cite: 100, 225], l'approche Agile accepte l'incertitude.</p>
+<ul>
+<li>[cite_start]<strong>Principe :</strong> Au lieu de tout planifier, on se fixe un <strong>premier objectif à court terme</strong>[cite: 225].</li>
+<li>[cite_start]<strong>Fonctionnement :</strong> Le projet avance <strong>d'étape en étape</strong> (itérations)[cite: 229].</li>
+<li><strong>But :</strong> Livrer de la valeur rapidement et s'adapter aux changements en cours de route.</li>
+</ul>
+<hr />
+<h3 id="ii-les-3-roles-scrum-lequipe">II. Les 3 Rôles Scrum (L'Équipe)</h3>
+<p>Dans Scrum, il n'y a pas de "Chef de Projet" unique qui commande aux autres. Les responsabilités sont réparties :</p>
+<h4 id="1-le-product-owner-po">1. Le Product Owner (PO)</h4>
+<ul>
+<li><strong>Son rôle :</strong> Il représente la "voix du client". Il est responsable de la valeur du produit.</li>
+<li><strong>Ses missions :</strong> Il définit les fonctionnalités (besoins), les priorise dans une liste (Backlog) et valide le travail effectué. C'est le seul à pouvoir décider <em>quoi</em> faire.</li>
+</ul>
+<h4 id="2-le-scrum-master-sm">2. Le Scrum Master (SM)</h4>
+<ul>
+<li><strong>Son rôle :</strong> C'est le "coach" ou le facilitateur de l'équipe. Ce n'est pas un chef hiérarchique.</li>
+<li><strong>Ses missions :</strong> Il s'assure que la méthode Scrum est bien appliquée. Il protège l'équipe des perturbations extérieures et aide à lever les obstacles bloquants.</li>
+</ul>
+<h4 id="3-lequipe-de-developpement-dev-team">3. L'Équipe de Développement (Dev Team)</h4>
+<ul>
+<li><strong>Son rôle :</strong> Ceux qui réalisent le produit.</li>
+<li><strong>Ses missions :</strong> C'est une équipe auto-organisée et pluridisciplinaire (devs, testeurs, designers). Ils décident <em>comment</em> réaliser techniquement ce que demande le PO.</li>
+</ul>
+<hr />
+<h3 id="iii-les-artefacts-les-outils">III. Les Artefacts (Les Outils)</h3>
+<p>Pour remplacer le lourd "Cahier des Charges" classique, Scrum utilise des outils plus souples :</p>
+<h4 id="1-les-user-stories-recits-utilisateur">1. Les User Stories (Récits Utilisateur)</h4>
+<p>Le besoin n'est pas décrit techniquement, mais sous forme d'histoire simple centrée sur l'utilisateur.</p>
+<blockquote>
+<p><em>Format type :</em> "En tant que <strong>[Rôle]</strong>, je veux <strong>[Action]</strong>, afin de <strong>[Bénéfice]</strong>."</p>
+</blockquote>
+<h4 id="2-le-product-backlog-carnet-de-produit">2. Le Product Backlog (Carnet de produit)</h4>
+<p>C'est la liste ordonnée et priorisée de toutes les User Stories (fonctionnalités) souhaitées pour le produit. C'est un document vivant qui évolue tout au long du projet (contrairement au cahier des charges figé).</p>
+<h4 id="3-le-sprint-backlog">3. Le Sprint Backlog</h4>
+<p>C'est la liste réduite des tâches que l'équipe s'engage à réaliser <strong>uniquement</strong> durant le cycle en cours (le Sprint).</p>
+<h4 id="4-lincrement">4. L'Incrément</h4>
+<p>Le résultat concret et utilisable livré à la fin de chaque Sprint (une version du logiciel qui fonctionne).</p>
+<hr />
+<h3 id="iv-les-rituels-le-rythme">IV. Les Rituels (Le Rythme)</h3>
+<p>Le projet est rythmé par des cycles de temps fixes appelés <strong>Sprints</strong> (généralement 2 à 4 semaines). Chaque Sprint contient 4 réunions clés :</p>
+<h4 id="1-sprint-planning-planification-de-sprint">1. Sprint Planning (Planification de Sprint)</h4>
+<ul>
+<li><strong>Quand :</strong> Au tout début du Sprint.</li>
+<li><strong>Quoi :</strong> Le PO présente les priorités. L'équipe sélectionne ce qu'elle est capable de faire durant le Sprint et crée le <em>Sprint Backlog</em>.</li>
+</ul>
+<h4 id="2-daily-scrum-melee-quotidienne">2. Daily Scrum (Mêlée Quotidienne)</h4>
+<ul>
+<li><strong>Quand :</strong> Tous les jours, à la même heure, debout (15 min max).</li>
+<li><strong>Quoi :</strong> Synchronisation de l'équipe. Chaque membre répond à 3 questions :<ol>
+<li><em>Qu'ai-je fait hier ?</em></li>
+<li><em>Que vais-je faire aujourd'hui ?</em></li>
+<li><em>Est-ce que j'ai un point de blocage ?</em></li>
+</ol>
+</li>
+</ul>
+<h4 id="3-sprint-review-revue-de-sprint">3. Sprint Review (Revue de Sprint)</h4>
+<ul>
+<li><strong>Quand :</strong> À la fin du Sprint.</li>
+<li><strong>Quoi :</strong> L'équipe présente (démonstration) ce qui a été fini au client et aux parties prenantes. On inspecte le produit réel, pas un rapport PowerPoint.</li>
+</ul>
+<h4 id="4-sprint-retrospective-retrospective">4. Sprint Retrospective (Rétrospective)</h4>
+<ul>
+<li><strong>Quand :</strong> Après la Revue, avant le prochain Planning.</li>
+<li><strong>Quoi :</strong> Réunion interne à l'équipe Scrum. On analyse la méthode de travail (pas le produit) : qu'est-ce qui a bien marché ? Qu'est-ce qu'on doit améliorer pour le prochain Sprint ? (Principe d'amélioration continue).</li>
+</ul>
+<hr />
+<h3 id="tableau-comparatif-gestion-de-projet-classique-vs-agile-scrum">Tableau Comparatif : Gestion de Projet Classique vs Agile (Scrum)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Concept / Rôle</th>
+<th style="text-align: left;">Méthode Classique (Cycle en V)</th>
+<th style="text-align: left;">Méthode Agile (Framework Scrum)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Philosophie</strong></td>
+<td style="text-align: left;">[cite_start]<strong>"Tout définir avant de faire"</strong> <br> On planifie tout le chemin avant de partir[cite: 100, 105].</td>
+<td style="text-align: left;">[cite_start]<strong>"Définir en faisant"</strong> <br> On avance étape par étape vers un objectif à court terme[cite: 225, 229].</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Le Besoin</strong></td>
+<td style="text-align: left;">[cite_start]<strong>Cahier des Charges</strong> [cite: 100] <br> Document exhaustif, contractuel et figé au départ.</td>
+<td style="text-align: left;"><strong>Product Backlog</strong> <br> Liste vivante, priorisée et modifiable des fonctionnalités (User Stories).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>La Planification</strong></td>
+<td style="text-align: left;">[cite_start]<strong>Prédictive (Gantt, WBS)</strong> [cite: 117, 166] <br> Plan détaillé sur toute la durée du projet.</td>
+<td style="text-align: left;"><strong>Itérative (Sprints)</strong> <br> Planification détaillée uniquement pour les 2-4 prochaines semaines.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Qui décide du "Quoi" ?</strong></td>
+<td style="text-align: left;">[cite_start]<strong>MOA (Maîtrise d'Ouvrage)</strong> [cite: 31] <br> Le "Sponsor" valide les besoins au début et à la fin.</td>
+<td style="text-align: left;"><strong>Product Owner (PO)</strong> <br> "Voix du client" intégrée à l'équipe, disponible au quotidien pour prioriser.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Qui gère l'équipe ?</strong></td>
+<td style="text-align: left;">[cite_start]<strong>MOE (Chef de Projet)</strong> [cite: 32] <br> Il distribue les tâches, contrôle l'avancement et rend des comptes.</td>
+<td style="text-align: left;"><strong>L'Équipe de Développement</strong> <br> Elle est <strong>auto-organisée</strong>. Le Scrum Master est un coach, pas un chef.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gestion du Changement</strong></td>
+<td style="text-align: left;">[cite_start]<strong>Avenant au contrat</strong> [cite: 107] <br> Le changement est vu comme un risque/coût à éviter ou contrôler strictement.</td>
+<td style="text-align: left;"><strong>Bienvenue aux changements</strong> <br> Le changement est une opportunité d'ajuster le produit au besoin réel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Livraison</strong></td>
+<td style="text-align: left;">[cite_start]<strong>Effet Tunnel ("Big Bang")</strong> <br> Le client voit le produit fini uniquement lors de la recette finale[cite: 37].</td>
+<td style="text-align: left;"><strong>Livraison Continue (Incréments)</strong> <br> Le client voit et teste une version fonctionnelle à la fin de chaque Sprint.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Contrôle Qualité</strong></td>
+<td style="text-align: left;">[cite_start]<strong>Recette (Vérification finale)</strong> [cite: 37] <br> Phase distincte à la fin du projet.</td>
+<td style="text-align: left;"><strong>Définition of Done (DoD)</strong> <br> La qualité est vérifiée en continu à chaque User Story terminée.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
