@@ -1,0 +1,4326 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../B1-1A-CSharp-01/">
+      
+      
+        <link rel="next" href="../Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que-corrige%CC%81/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>B1 1A CSharp 02 - zet74prof - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#seance-2-variables-types-de-donnees-et-operateurs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="zet74prof - Documentation" class="md-header__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zet74prof - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B1 1A CSharp 02
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="zet74prof - Documentation" class="md-nav__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zet74prof - Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIO Docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AP/AP-1A-Bases-Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP 1A Bases Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base du développement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Base du développement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B1-1A-CSharp-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 02
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#seance-2-variables-types-de-donnees-et-operateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Séance 2 : Variables, types de données et opérateurs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Partie Cours
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Partie Cours">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-gestion-des-chaines-de-caracteres-string-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 0. Gestion des chaînes de caractères (string) en C#
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 0. Gestion des chaînes de caractères (string) en C#">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-declaration-et-initialisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.1. Déclaration et initialisation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 0.1. Déclaration et initialisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe-de-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntaxe de déclaration :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-concatenation-de-chaines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.2. Concaténation de chaînes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-interpolation-de-chaines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.3. Interpolation de chaînes ($)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 0.3. Interpolation de chaînes ($)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntaxe :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-methodes-et-proprietes-utiles-pour-les-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.4. Méthodes et propriétés utiles pour les string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-comparaison-de-chaines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.5. Comparaison de chaînes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 0.5. Comparaison de chaînes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#051-operateurs-de-comparaison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.5.1 Opérateurs de comparaison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#052-methode-stringequals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.5.2 Méthode String.Equals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-chaines-verbatim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.6. Chaînes verbatim (@)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-chaines-brutes-en-c-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.7. Chaînes brutes (""" en C# 11+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-pieges-courants-avec-les-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.8. Pièges courants avec les string
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resume-visuel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Résumé visuel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-les-variables-et-les-types-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 1. Les variables et les types de données
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 1. Les variables et les types de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-pourquoi-utiliser-des-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Pourquoi utiliser des variables ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-types-de-donnees-primaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Types de données primaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-declaration-et-initialisation-des-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Déclaration et initialisation des variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-constantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Constantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-operateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 2. Opérateurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 2. Opérateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-operateurs-arithmetiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Opérateurs arithmétiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-operateurs-daffectation-composes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Opérateurs d’affectation composés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-operateurs-de-comparaison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Opérateurs de comparaison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-operateurs-booleens-et-logique-booleenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 📚 Opérateurs booléens et logique booléenne
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rappel-algebre-de-boole-et-operateurs-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Rappel : Algèbre de Boole et opérateurs en C#
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Rappel : Algèbre de Boole et opérateurs en C#">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-definitions-formelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 Définitions formelles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-difference-entre-et" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 Différence entre &amp;/| et &amp;&amp;/||
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-priorite-des-operateurs-booleens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 Priorité des opérateurs booléens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244-exemples-concrets-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.4 Exemples concrets en C#
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices-pour-pratiquer-la-logique-booleenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Exercices pour pratiquer la logique booléenne
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Exercices pour pratiquer la logique booléenne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niveau-1-evaluation-dexpressions-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Niveau 1 : Évaluation d’expressions simples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-2-construction-de-tables-de-verite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Niveau 2 : Construction de tables de vérité
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Niveau 2 : Construction de tables de vérité">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1-p-q" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : !(p &amp; q)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2-p-q-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : p ^ (q | !p)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3-p-q-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : (p || q) &amp;&amp; !p
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-conversions-de-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 3. Conversions de types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 3. Conversions de types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-conversions-implicites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Conversions implicites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-conversions-explicites-cast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Conversions explicites (Cast)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-methodes-de-conversion-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Méthodes de conversion utiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Partie TP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Partie TP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tp-1-convertisseur-de-temperatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 TP 1 : Convertisseur de températures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 TP 1 : Convertisseur de températures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etapes-detaillees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Étapes détaillées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pieges-et-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Pièges et solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-2-calcul-de-moyenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 TP 2 : Calcul de moyenne
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 TP 2 : Calcul de moyenne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enonce_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etapes-detaillees_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Étapes détaillées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pieges-et-solutions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Pièges et solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-3-jeu-devine-le-nombre-version-simplifiee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 TP 3 : Jeu "Devine le nombre" (version simplifiée)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 TP 3 : Jeu &#34;Devine le nombre&#34; (version simplifiée)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enonce_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etapes-detaillees_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Étapes détaillées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ameliorations-possibles-pour-les-rapides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Améliorations possibles (pour les rapides)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pieges-et-solutions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Pièges et solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-dapprentissage-valides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objectifs d’apprentissage validés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transition-vers-la-seance-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔜 Transition vers la Séance 3
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_3" id="__nav_2_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Epreuve semestrielle
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Epreuve semestrielle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que-corrige%CC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrigé : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entraînement : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/entrainement2-hopital-corrige%CC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrainement2 hopital corrigé
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/entrainement2-hopital/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Évaluation d'entraînement : Gestion des Rendez-Vous d'un Hôpital Public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/glossaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation Orientée Objet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programmation Orientée Objet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programmation%20Orient%C3%A9e%20Objet/POO-Cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    POO Cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programmation%20Orient%C3%A9e%20Objet/POO-TD-ParcAuto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    POO TD ParcAuto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/AP/AP-2A-SISIR-Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatisation avec Ansible pour la Réinstallation des PC sous Ubuntu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B1/B1-1A-Cours-Gestion%20de%20projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours de Gestion de Projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B1/B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 2A TP Mise en place d'un pipeline CICD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B2/Git-Bonnes%20pratiques%20de%20d%C3%A9veloppement%20en%20%C3%A9quipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Bonnes pratiques de développement en équipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#seance-2-variables-types-de-donnees-et-operateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Séance 2 : Variables, types de données et opérateurs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Partie Cours
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Partie Cours">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-gestion-des-chaines-de-caracteres-string-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 0. Gestion des chaînes de caractères (string) en C#
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 0. Gestion des chaînes de caractères (string) en C#">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-declaration-et-initialisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.1. Déclaration et initialisation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 0.1. Déclaration et initialisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe-de-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntaxe de déclaration :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-concatenation-de-chaines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.2. Concaténation de chaînes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-interpolation-de-chaines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.3. Interpolation de chaînes ($)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 0.3. Interpolation de chaînes ($)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntaxe :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-methodes-et-proprietes-utiles-pour-les-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.4. Méthodes et propriétés utiles pour les string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-comparaison-de-chaines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.5. Comparaison de chaînes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 0.5. Comparaison de chaînes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#051-operateurs-de-comparaison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.5.1 Opérateurs de comparaison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#052-methode-stringequals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.5.2 Méthode String.Equals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-chaines-verbatim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.6. Chaînes verbatim (@)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-chaines-brutes-en-c-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.7. Chaînes brutes (""" en C# 11+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-pieges-courants-avec-les-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 0.8. Pièges courants avec les string
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resume-visuel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Résumé visuel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-les-variables-et-les-types-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 1. Les variables et les types de données
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 1. Les variables et les types de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-pourquoi-utiliser-des-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Pourquoi utiliser des variables ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-types-de-donnees-primaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Types de données primaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-declaration-et-initialisation-des-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Déclaration et initialisation des variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-constantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Constantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-operateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 2. Opérateurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 2. Opérateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-operateurs-arithmetiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Opérateurs arithmétiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-operateurs-daffectation-composes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Opérateurs d’affectation composés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-operateurs-de-comparaison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Opérateurs de comparaison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-operateurs-booleens-et-logique-booleenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 📚 Opérateurs booléens et logique booléenne
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rappel-algebre-de-boole-et-operateurs-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Rappel : Algèbre de Boole et opérateurs en C#
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Rappel : Algèbre de Boole et opérateurs en C#">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-definitions-formelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 Définitions formelles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-difference-entre-et" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 Différence entre &amp;/| et &amp;&amp;/||
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-priorite-des-operateurs-booleens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 Priorité des opérateurs booléens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244-exemples-concrets-en-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.4 Exemples concrets en C#
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices-pour-pratiquer-la-logique-booleenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Exercices pour pratiquer la logique booléenne
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Exercices pour pratiquer la logique booléenne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#niveau-1-evaluation-dexpressions-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Niveau 1 : Évaluation d’expressions simples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveau-2-construction-de-tables-de-verite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Niveau 2 : Construction de tables de vérité
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Niveau 2 : Construction de tables de vérité">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1-p-q" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : !(p &amp; q)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2-p-q-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : p ^ (q | !p)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3-p-q-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : (p || q) &amp;&amp; !p
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-conversions-de-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 3. Conversions de types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 3. Conversions de types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-conversions-implicites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Conversions implicites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-conversions-explicites-cast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Conversions explicites (Cast)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-methodes-de-conversion-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Méthodes de conversion utiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partie-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Partie TP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Partie TP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tp-1-convertisseur-de-temperatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 TP 1 : Convertisseur de températures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 TP 1 : Convertisseur de températures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etapes-detaillees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Étapes détaillées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pieges-et-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Pièges et solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-2-calcul-de-moyenne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 TP 2 : Calcul de moyenne
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 TP 2 : Calcul de moyenne">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enonce_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etapes-detaillees_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Étapes détaillées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pieges-et-solutions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Pièges et solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tp-3-jeu-devine-le-nombre-version-simplifiee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 TP 3 : Jeu "Devine le nombre" (version simplifiée)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 TP 3 : Jeu &#34;Devine le nombre&#34; (version simplifiée)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enonce_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Énoncé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etapes-detaillees_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Étapes détaillées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ameliorations-possibles-pour-les-rapides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Améliorations possibles (pour les rapides)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pieges-et-solutions_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Pièges et solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ressources-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Ressources complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-dapprentissage-valides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objectifs d’apprentissage validés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transition-vers-la-seance-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔜 Transition vers la Séance 3
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>B1 1A CSharp 02</h1>
+
+<h2 id="seance-2-variables-types-de-donnees-et-operateurs"><strong>📌 Séance 2 : Variables, types de données et opérateurs</strong></h2>
+<p><strong>Objectifs pédagogiques</strong> :
+✅ Comprendre les <strong>types de données primaires</strong> en C# (<code>int</code>, <code>double</code>, <code>string</code>, <code>bool</code>, <code>char</code>).
+✅ Déclarer et utiliser des <strong>variables</strong>.
+✅ Maîtriser les <strong>opérateurs arithmétiques</strong> (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>) et <strong>logiques</strong> (<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>).
+✅ Effectuer des <strong>conversions de types</strong> (implicites et explicites).
+✅ Utiliser <code>Console.ReadLine()</code> et les conversions pour interagir avec l’utilisateur.</p>
+<hr />
+<h2 id="partie-cours"><strong>📚 Partie Cours</strong></h2>
+<hr />
+<h3 id="0-gestion-des-chaines-de-caracteres-string-en-c"><strong>📚 0. Gestion des chaînes de caractères (<code>string</code>) en C#</strong></h3>
+<hr />
+<h4 id="01-declaration-et-initialisation"><strong>🔹 0.1. Déclaration et initialisation</strong></h4>
+<p>Une <strong>chaîne de caractères</strong> (<code>string</code>) est une séquence de caractères Unicode.</p>
+<h5 id="syntaxe-de-declaration"><strong>Syntaxe de déclaration</strong> :</h5>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Étienne&quot;</span><span class="p">;</span><span class="w">          </span><span class="c1">// Avec des guillemets doubles</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">string</span><span class="w"> </span><span class="n">texte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bonjour BTS SIO&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Espaces autorisés</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">vide</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w">                </span><span class="c1">// Chaîne vide</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">string</span><span class="w"> </span><span class="n">nullString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span><span class="w">        </span><span class="c1">// Chaîne nulle (pas de valeur)</span>
+</span></code></pre></div>
+<p><strong>Remarques</strong> :
+- Utiliser <strong>toujours des guillemets doubles</strong> (<code>"</code>) pour les chaînes.
+- Une chaîne <strong>vide</strong> (<code>""</code>) est différente d’une chaîne <strong>nulle</strong> (<code>null</code>).
+- <strong>Immutabilité</strong> : Toute modification d’une chaîne crée une <strong>nouvelle chaîne</strong> en mémoire.
+  <em>Exemple</em> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">texte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bonjour&quot;</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">texte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texte</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; !&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Crée une nouvelle chaîne &quot;Bonjour !&quot;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="02-concatenation-de-chaines"><strong>🔹 0.2. Concaténation de chaînes</strong></h4>
+<p>La <strong>concaténation</strong> consiste à assembler plusieurs chaînes en une seule.</p>
+<p>L’opérateur <code>+</code> permet de concaténer des chaînes <strong>ou</strong> de mélanger chaînes et autres types (qui sont convertis en chaîne automatiquement).</p>
+<p><strong>Exemples</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">prenom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Étienne&quot;</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">string</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BUFFET&quot;</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">nomComplet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prenom</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;Étienne BUFFET&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// Mélange avec d&#39;autres types</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kt">string</span><span class="w"> </span><span class="n">presentation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;J&#39;ai &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; ans.&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;J&#39;ai 25 ans.&quot;</span>
+</span></code></pre></div></p>
+<p><strong>Piège à éviter</strong> :
+- <strong>Concaténation de nombres</strong> : Si les deux opérandes sont des nombres, <code>+</code> effectue une <strong>addition arithmétique</strong>.
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ Erreur : resultat est un int (30), pas un string</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kt">string</span><span class="w"> </span><span class="n">resultatCorrect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;1020&quot;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="03-interpolation-de-chaines"><strong>🔹 0.3. Interpolation de chaînes (<code>$</code>)</strong></h4>
+<p>L’<strong>interpolation de chaînes</strong> permet d’insérer directement des <strong>expressions</strong> dans une chaîne, en utilisant le préfixe <code>$</code> avant les guillemets.</p>
+<h5 id="syntaxe"><strong>Syntaxe</strong> :</h5>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;{variable} texte {expression}&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>Exemples</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">prenom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Étienne&quot;</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;Je m&#39;appelle {prenom} et j&#39;ai {age} ans.&quot;</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">// Résultat : &quot;Je m&#39;appelle Étienne et j&#39;ai 25 ans.&quot;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">// Avec des expressions</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kt">string</span><span class="w"> </span><span class="n">calcul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$&quot;{a} + {b} = {a + b}&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// &quot;10 + 20 = 30&quot;</span>
+</span></code></pre></div></p>
+<p><strong>Avantages</strong> :
+- <strong>Plus lisible</strong> que la concaténation avec <code>+</code>.
+- <strong>Moins sujet aux erreurs</strong> (pas besoin de convertir manuellement les types).</p>
+<p><strong>Piège à éviter</strong> :
+- Oublier le <code>$</code> devant les guillemets :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{prenom} a {age} ans.&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ Affiche &quot;{prenom} a {age} ans.&quot; littéralement</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="04-methodes-et-proprietes-utiles-pour-les-string"><strong>🔹 0.4. Méthodes et propriétés utiles pour les <code>string</code></strong></h4>
+<table>
+<thead>
+<tr>
+<th>Méthode/Propriété</th>
+<th>Description</th>
+<th>Exemple</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>Length</code></strong></td>
+<td>Retourne la <strong>longueur</strong> de la chaîne.</td>
+<td><code>"Bonjour".Length</code></td>
+<td><code>7</code></td>
+</tr>
+<tr>
+<td><strong><code>ToUpper()</code></strong></td>
+<td>Convertit en <strong>majuscules</strong>.</td>
+<td><code>"bonjour".ToUpper()</code></td>
+<td><code>"BONJOUR"</code></td>
+</tr>
+<tr>
+<td><strong><code>ToLower()</code></strong></td>
+<td>Convertit en <strong>minuscules</strong>.</td>
+<td><code>"BONJOUR".ToLower()</code></td>
+<td><code>"bonjour"</code></td>
+</tr>
+<tr>
+<td><strong><code>Substring(start)</code></strong></td>
+<td>Extrait une sous-chaîne à partir de <code>start</code>.</td>
+<td><code>"Bonjour".Substring(3)</code></td>
+<td><code>"jour"</code></td>
+</tr>
+<tr>
+<td><strong><code>Substring(start, length)</code></strong></td>
+<td>Extrait <code>length</code> caractères à partir de <code>start</code>.</td>
+<td><code>"Bonjour".Substring(0, 4)</code></td>
+<td><code>"Bonj"</code></td>
+</tr>
+<tr>
+<td><strong><code>IndexOf(char)</code></strong></td>
+<td>Retourne l’<strong>index</strong> de la première occurrence d’un caractère.</td>
+<td><code>"Bonjour".IndexOf('o')</code></td>
+<td><code>1</code> (index de 'o')</td>
+</tr>
+<tr>
+<td><strong><code>IndexOf(string)</code></strong></td>
+<td>Retourne l’index de la première occurrence d’une sous-chaîne.</td>
+<td><code>"Bonjour".IndexOf("jour")</code></td>
+<td><code>3</code></td>
+</tr>
+<tr>
+<td><strong><code>Contains(string)</code></strong></td>
+<td>Vérifie si la chaîne <strong>contient</strong> une sous-chaîne.</td>
+<td><code>"Bonjour".Contains("jour")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong><code>StartsWith(string)</code></strong></td>
+<td>Vérifie si la chaîne <strong>commence par</strong> une sous-chaîne.</td>
+<td><code>"Bonjour".StartsWith("Bon")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong><code>EndsWith(string)</code></strong></td>
+<td>Vérifie si la chaîne <strong>finit par</strong> une sous-chaîne.</td>
+<td><code>"Bonjour".EndsWith("jour")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong><code>Replace(old, new)</code></strong></td>
+<td>Remplace toutes les occurrences de <code>old</code> par <code>new</code>.</td>
+<td><code>"Bonjour".Replace("o", "a")</code></td>
+<td><code>"Banjaur"</code></td>
+</tr>
+<tr>
+<td><strong><code>Trim()</code></strong></td>
+<td>Supprime les <strong>espaces</strong> en début et fin de chaîne.</td>
+<td><code>"  Bonjour  ".Trim()</code></td>
+<td><code>"Bonjour"</code></td>
+</tr>
+<tr>
+<td><strong><code>TrimStart()</code></strong></td>
+<td>Supprime les espaces <strong>au début</strong>.</td>
+<td><code>"  Bonjour".TrimStart()</code></td>
+<td><code>"Bonjour"</code></td>
+</tr>
+<tr>
+<td><strong><code>TrimEnd()</code></strong></td>
+<td>Supprime les espaces <strong>à la fin</strong>.</td>
+<td><code>"Bonjour  ".TrimEnd()</code></td>
+<td><code>"Bonjour"</code></td>
+</tr>
+<tr>
+<td><strong><code>Split(char)</code></strong></td>
+<td>Découpe la chaîne en un tableau, selon un séparateur.</td>
+<td><code>"a,b,c".Split(',')</code></td>
+<td><code>["a", "b", "c"]</code></td>
+</tr>
+<tr>
+<td><strong><code>IsNullOrEmpty()</code></strong></td>
+<td>Vérifie si la chaîne est <strong>nulle ou vide</strong>.</td>
+<td><code>string.IsNullOrEmpty("")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong><code>IsNullOrWhiteSpace()</code></strong></td>
+<td>Vérifie si la chaîne est <strong>nulle, vide ou composée d’espaces</strong>.</td>
+<td><code>string.IsNullOrWhiteSpace("   ")</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemples combinés</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">texte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;   Bonjour BTS SIO   &quot;</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">// Nettoyage + majuscules</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">texteNettoye</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texte</span><span class="p">.</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToUpper</span><span class="p">();</span><span class="w"> </span><span class="c1">// &quot;BONJOUR BTS SIO&quot;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">// Remplacement</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kt">string</span><span class="w"> </span><span class="n">texteModifie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texte</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;BTS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BTS SIO 2&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;   Bonjour BTS SIO 2   &quot;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1">// Extraction</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="kt">string</span><span class="w"> </span><span class="n">sousTexte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">texte</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;BTS&quot; (à partir de l&#39;index 8, 3 caractères)</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="05-comparaison-de-chaines"><strong>🔹 0.5. Comparaison de chaînes</strong></h4>
+<p>En C#, les chaînes peuvent être comparées avec les opérateurs <strong><code>==</code></strong>, <strong><code>!=</code></strong>, <strong><code>&lt;</code></strong>, <strong><code>&gt;</code></strong>, etc., mais <strong>attention</strong> :
+- La comparaison est <strong>sensible à la casse</strong> par défaut (<code>"A" != "a"</code>).
+- Pour une comparaison <strong>insensible à la casse</strong>, utiliser <code>String.Equals</code> avec <code>StringComparison.OrdinalIgnoreCase</code>.</p>
+<h5 id="051-operateurs-de-comparaison"><strong>0.5.1 Opérateurs de comparaison</strong></h5>
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Description</th>
+<th>Exemple</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Égalité</td>
+<td><code>"a" == "a"</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Inégalité</td>
+<td><code>"a" != "b"</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Inférieur (comparaison <strong>lexicographique</strong>)</td>
+<td><code>"a" &lt; "b"</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Supérieur</td>
+<td><code>"b" &gt; "a"</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemple</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;apple&quot;</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">string</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;banana&quot;</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// true (&quot;apple&quot; vient avant &quot;banana&quot; dans l&#39;ordre lexicographique)</span>
+</span></code></pre></div></p>
+<p><strong>Remarque</strong> :
+- La comparaison lexicographique utilise l’<strong>ordre Unicode</strong> (ex: <code>'A' &lt; 'a'</code> car <code>'A'</code> a un code Unicode plus petit).</p>
+<hr />
+<h5 id="052-methode-stringequals"><strong>0.5.2 Méthode <code>String.Equals</code></strong></h5>
+<p>Pour une comparaison <strong>précise</strong> (avec ou sans sensibilité à la casse) :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bonjour&quot;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">string</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bonjour&quot;</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">// Sensible à la casse (par défaut)</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">egal1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// false</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1">// Insensible à la casse</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="kt">bool</span><span class="w"> </span><span class="n">egal2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">StringComparison</span><span class="p">.</span><span class="n">OrdinalIgnoreCase</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="06-chaines-verbatim"><strong>🔹 0.6. Chaînes verbatim (<code>@</code>)</strong></h4>
+<p>Les <strong>chaînes verbatim</strong> (préfixe <code>@</code>) permettent d’écrire des chaînes <strong>sans échapper les caractères spéciaux</strong> (comme <code>\n</code>, <code>\t</code>, ou <code>\"</code>).
+Elles sont utiles pour :
+- Les <strong>chemins de fichiers</strong> (ex: <code>@"C:\Dossier\Fichier.txt"</code>).
+- Les <strong>expressions régulières</strong>.
+- Les <strong>chaînes multi-lignes</strong>.</p>
+<p><strong>Exemple</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Sans @, il faut échapper les backslashes</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">string</span><span class="w"> </span><span class="n">chemin1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;C:\\Dossier\\Fichier.txt&quot;</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1">// Avec @, pas besoin d&#39;échapper</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kt">string</span><span class="w"> </span><span class="n">chemin2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@&quot;C:\Dossier\Fichier.txt&quot;</span><span class="p">;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1">// Chaîne multi-lignes</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="kt">string</span><span class="w"> </span><span class="n">texte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@&quot;Ceci est une ligne.</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="s">                 Ceci est une autre ligne.&quot;</span><span class="p">;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">texte</span><span class="p">);</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1">// Affiche :</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c1">// Ceci est une ligne.</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c1">//                  Ceci est une autre ligne.</span>
+</span></code></pre></div></p>
+<p><strong>Remarque</strong> :
+- Les <strong>guillemets doubles</strong> doivent être <strong>doublés</strong> dans une chaîne verbatim :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">citation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@&quot;Il a dit : &quot;&quot;Bonjour&quot;&quot; !&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Affiche : Il a dit : &quot;Bonjour&quot; !</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="07-chaines-brutes-en-c-11"><strong>🔹 0.7. Chaînes brutes (<code>"""</code> en C# 11+)</strong></h4>
+<p>Depuis <strong>C# 11</strong> (2022), il est possible d’utiliser des <strong>chaînes brutes</strong> (raw string literals) avec <strong>trois guillemets</strong> (<code>"""</code>).
+Elles permettent :
+- D’écrire des chaînes <strong>multi-lignes</strong> sans utiliser <code>@</code> ou <code>\n</code>.
+- D’inclure <strong>n’importe quel caractère</strong> (y compris des guillemets ou des accolades) sans échappement.</p>
+<p><strong>Exemple</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">        </span><span class="s">&quot;nom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Étienne&quot;</span><span class="p">,</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">        </span><span class="s">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="s">&quot;ville&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Paris&quot;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="s">&quot;&quot;&quot;;</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+</span></code></pre></div>
+→ Affiche exactement le JSON, y compris les sauts de ligne et les indentations.</p>
+<p><strong>Avantages par rapport à <code>@</code></strong> :
+- Pas besoin de doubler les guillemets.
+- Meilleure lisibilité pour les <strong>textes longs</strong> (ex : requêtes SQL, JSON, XML).</p>
+<hr />
+<h4 id="08-pieges-courants-avec-les-string"><strong>🔹 0.8. Pièges courants avec les <code>string</code></strong></h4>
+<table>
+<thead>
+<tr>
+<th>Piège</th>
+<th>Exemple</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Concaténation de nombres</strong></td>
+<td><code>string s = 10 + 20;</code> → <code>s</code> vaut <code>30</code> (int)</td>
+<td><code>string s = (10).ToString() + (20).ToString();</code></td>
+</tr>
+<tr>
+<td><strong>Comparaison sensible à la casse</strong></td>
+<td><code>"A" == "a"</code> → <code>false</code></td>
+<td>Utiliser <code>Equals</code> avec <code>StringComparison.OrdinalIgnoreCase</code>.</td>
+</tr>
+<tr>
+<td><strong>Chaîne nulle vs chaîne vide</strong></td>
+<td><code>string s = null;</code> vs <code>string s = "";</code></td>
+<td>Toujours vérifier <code>string.IsNullOrEmpty(s)</code>.</td>
+</tr>
+<tr>
+<td><strong>Modification d’une chaîne</strong></td>
+<td><code>s[0] = 'B';</code> → ❌ Erreur (immutable)</td>
+<td>Créer une nouvelle chaîne : <code>s = "B" + s.Substring(1);</code>.</td>
+</tr>
+<tr>
+<td><strong>Index hors limites</strong></td>
+<td><code>"abc".Substring(5)</code> → ❌ <code>ArgumentOutOfRangeException</code></td>
+<td>Vérifier <code>s.Length</code> avant d’extraire.</td>
+</tr>
+<tr>
+<td><strong>Utilisation de <code>==</code> avec <code>null</code></strong></td>
+<td><code>if (s == null)</code> → ✅ OK, mais <code>if (s.Length == 0)</code> → ❌ <code>NullReferenceException</code> si <code>s</code> est <code>null</code></td>
+<td>Toujours vérifier <code>s != null</code> avant d’accéder à <code>s.Length</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="bonnes-pratiques"><strong>📌 Bonnes pratiques</strong></h3>
+<ol>
+<li><strong>Préférer l’interpolation (<code>$"..."</code>)</strong> à la concaténation (<code>+</code>) pour la lisibilité.</li>
+<li><strong>Utiliser <code>String.IsNullOrEmpty</code></strong> pour vérifier si une chaîne est vide ou nulle.</li>
+<li><strong>Éviter les chaînes trop longues</strong> : Si une chaîne dépasse <strong>1000 caractères</strong>, envisager de la stocker dans un fichier ou une base de données.</li>
+<li><strong>Pour les chemins de fichiers</strong> : Toujours utiliser <code>@</code> ou <code>Path.Combine</code> :
+   <div class="language-csharp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">chemin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="s">&quot;C:&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Dossier&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fichier.txt&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Plus sûr que la concaténation</span>
+</span></code></pre></div></li>
+<li><strong>Pour les comparaisons</strong> :<ul>
+<li>Utiliser <code>String.Equals</code> pour une comparaison <strong>explicite</strong>.</li>
+<li>Éviter <code>==</code> avec des chaînes <strong>nulles</strong> (risque de <code>NullReferenceException</code>).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="resume-visuel"><strong>📌 Résumé visuel</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Syntaxe</th>
+<th>Exemple</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Déclaration</strong></td>
+<td><code>string nom = "valeur";</code></td>
+<td><code>string s = "Hello";</code></td>
+<td><code>"Hello"</code></td>
+</tr>
+<tr>
+<td><strong>Concaténation</strong></td>
+<td><code>s1 + s2</code></td>
+<td><code>"Hello" + " " + "World"</code></td>
+<td><code>"Hello World"</code></td>
+</tr>
+<tr>
+<td><strong>Interpolation</strong></td>
+<td><code>$"{var}"</code></td>
+<td><code>$"Age : {25}"</code></td>
+<td><code>"Age : 25"</code></td>
+</tr>
+<tr>
+<td><strong>Longueur</strong></td>
+<td><code>s.Length</code></td>
+<td><code>"Hello".Length</code></td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><strong>Majuscules</strong></td>
+<td><code>s.ToUpper()</code></td>
+<td><code>"hello".ToUpper()</code></td>
+<td><code>"HELLO"</code></td>
+</tr>
+<tr>
+<td><strong>Minuscules</strong></td>
+<td><code>s.ToLower()</code></td>
+<td><code>"HELLO".ToLower()</code></td>
+<td><code>"hello"</code></td>
+</tr>
+<tr>
+<td><strong>Sous-chaîne</strong></td>
+<td><code>s.Substring(start, length)</code></td>
+<td><code>"Hello".Substring(1, 3)</code></td>
+<td><code>"ell"</code></td>
+</tr>
+<tr>
+<td><strong>Remplacement</strong></td>
+<td><code>s.Replace(old, new)</code></td>
+<td><code>"Hello".Replace("l", "x")</code></td>
+<td><code>"Hexxo"</code></td>
+</tr>
+<tr>
+<td><strong>Contient</strong></td>
+<td><code>s.Contains("texte")</code></td>
+<td><code>"Hello".Contains("ell")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong>Commence par</strong></td>
+<td><code>s.StartsWith("texte")</code></td>
+<td><code>"Hello".StartsWith("He")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong>Finit par</strong></td>
+<td><code>s.EndsWith("texte")</code></td>
+<td><code>"Hello".EndsWith("lo")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong>Chaîne verbatim</strong></td>
+<td><code>@"texte"</code></td>
+<td><code>@"C:\Dossier\Fichier.txt"</code></td>
+<td><code>"C:\Dossier\Fichier.txt"</code></td>
+</tr>
+<tr>
+<td><strong>Chaîne brute</strong></td>
+<td><code>"""texte"""</code></td>
+<td><code>"""Ligne1\nLigne2"""</code></td>
+<td>Conserve les sauts de ligne</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="1-les-variables-et-les-types-de-donnees"><strong>🔹 1. Les variables et les types de données</strong></h3>
+<h4 id="11-pourquoi-utiliser-des-variables"><strong>1.1 Pourquoi utiliser des variables ?</strong></h4>
+<ul>
+<li>Une <strong>variable</strong> est un <strong>conteneur</strong> qui stocke une valeur en mémoire.</li>
+<li>Elle a :<ul>
+<li>Un <strong>nom</strong> (identifiant).</li>
+<li>Un <strong>type</strong> (détermine le genre de données qu’elle peut contenir).</li>
+<li>Une <strong>valeur</strong> (contenu).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Analogie</strong> :</p>
+<blockquote>
+<p>"Une variable est comme une <strong>boîte étiquetée</strong> :
+- L’<strong>étiquette</strong> = le nom de la variable (ex: <code>age</code>).
+- La <strong>taille de la boîte</strong> = le type (ex: <code>int</code> pour un nombre entier).
+- Le <strong>contenu</strong> = la valeur (ex: <code>20</code>)."</p>
+</blockquote>
+<hr />
+<h4 id="12-types-de-donnees-primaires"><strong>1.2 Types de données primaires</strong></h4>
+<p>Voici les types les plus utilisés en C# pour commencer :</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Exemple</th>
+<th>Taille (octets)</th>
+<th>Plage de valeurs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td>Entier (nombres sans décimales)</td>
+<td><code>int age = 20;</code></td>
+<td>4</td>
+<td>-2,147,483,648 à 2,147,483,647</td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td>Entier long</td>
+<td><code>long population = 8000000000;</code></td>
+<td>8</td>
+<td>-9,223,372,036,854,775,808 à 9,223,372,036,854,775,807</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>Nombre à virgule (précision double)</td>
+<td><code>double prix = 19.99;</code></td>
+<td>8</td>
+<td>±5.0 × 10<sup>-324</sup> à ±1.7 × 10<sup>308</sup></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>Nombre à virgule (précision simple)</td>
+<td><code>float temperature = 36.6f;</code></td>
+<td>4</td>
+<td>±1.5 × 10<sup>-45</sup> à ±3.4 × 10<sup>38</sup></td>
+</tr>
+<tr>
+<td><code>decimal</code></td>
+<td>Nombre décimal (précision financière)</td>
+<td><code>decimal solde = 1000.50m;</code></td>
+<td>16</td>
+<td>±1.0 × 10<sup>-28</sup> à ±7.9 × 10<sup>28</sup></td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>Chaîne de caractères</td>
+<td><code>string nom = "Étienne";</code></td>
+<td>Variable</td>
+<td>Limité par la mémoire</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>Caractère unique</td>
+<td><code>char lettre = 'A';</code></td>
+<td>2</td>
+<td>Un seul caractère Unicode</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>Booléen (vrai/faux)</td>
+<td><code>bool estMajeur = true;</code></td>
+<td>1</td>
+<td><code>true</code> ou <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Remarques</strong> :
+- <code>double</code> est plus précis que <code>float</code>.
+- <code>decimal</code> est idéal pour les <strong>calculs financiers</strong> (évite les erreurs d’arrondi).</p>
+<p><strong>Littéraux</strong> :
+- Pour les <strong>nombres à virgule flottante</strong>, on utilise <code>f</code> ou <code>F</code> pour le type <code>float</code> et <code>d</code> ou <code>D</code> ou rien pour le type <code>double</code>.
+- Pour les <strong>nombres décimaux</strong>, on utilise <code>m</code> ou <code>M</code>.
+Exemple :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">unFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14f</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">unDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span><span class="w"> </span><span class="c1">// double par défaut</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">unAutreDouble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159d</span><span class="p">;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="kt">decimal</span><span class="w"> </span><span class="n">unEntier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000.50m</span><span class="p">;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="13-declaration-et-initialisation-des-variables"><strong>1.3 Déclaration et initialisation des variables</strong></h4>
+<p><strong>Syntaxe</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">type</span><span class="w"> </span><span class="n">nomVariable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valeur</span><span class="p">;</span>
+</span></code></pre></div>
+<strong>Exemples</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">prix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">19.99</span><span class="p">;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">prenom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Alice&quot;</span><span class="p">;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="kt">bool</span><span class="w"> </span><span class="n">estEtudiant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="kt">char</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p><strong>Bonnes pratiques</strong> :
+- <strong>Nommage</strong> :
+    - Utiliser des noms <strong>explicites</strong> : <code>nombreEtudiants</code> au lieu de <code>x</code>.
+    - <strong>Convention PascalCase</strong> pour les noms de variables (ex: <code>monAge</code>, <code>nomUtilisateur</code>).
+    - Éviter les noms génériques comme <code>data</code>, <code>temp</code>, <code>var1</code>.
+- <strong>Initialisation</strong> :
+    - Toujours initialiser une variable avant de l’utiliser (sinon erreur de compilation).</p>
+<p><strong>Piège à éviter</strong> :
+- <strong>Variable non initialisée</strong> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span><span class="w"> </span><span class="c1">// Déclaration sans initialisation</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">nombre</span><span class="p">);</span><span class="w"> </span><span class="c1">// ❌ Erreur : &quot;Use of unassigned local variable&quot;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="14-constantes"><strong>1.4 Constantes</strong></h4>
+<ul>
+<li>Une <strong>constante</strong> est une variable dont la valeur <strong>ne peut pas changer</strong> après initialisation.</li>
+<li><strong>Syntaxe</strong> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">const</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">NOM_CONSTANTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valeur</span><span class="p">;</span>
+</span></code></pre></div></li>
+<li><strong>Exemple</strong> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">NOM_BTS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BTS SIO&quot;</span><span class="p">;</span>
+</span></code></pre></div></li>
+<li><strong>Convention</strong> : Utiliser des <strong>MAJUSCULES</strong> pour les noms de constantes.</li>
+</ul>
+<hr />
+<h3 id="2-operateurs"><strong>🔹 2. Opérateurs</strong></h3>
+<h4 id="21-operateurs-arithmetiques"><strong>2.1 Opérateurs arithmétiques</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Nom</th>
+<th>Exemple</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Addition</td>
+<td><code>5 + 3</code></td>
+<td><code>8</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Soustraction</td>
+<td><code>5 - 3</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplication</td>
+<td><code>5 * 3</code></td>
+<td><code>15</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Division</td>
+<td><code>5 / 2</code></td>
+<td><code>2</code> (division entière)</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Modulo (reste)</td>
+<td><code>5 % 2</code></td>
+<td><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemple complet</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Addition : {a + b}&quot;</span><span class="p">);</span><span class="w">       </span><span class="c1">// 13</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Soustraction : {a - b}&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 7</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Multiplication : {a * b}&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// 30</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Division : {a / b}&quot;</span><span class="p">);</span><span class="w">       </span><span class="c1">// 3 (division entière)</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Reste : {a % b}&quot;</span><span class="p">);</span><span class="w">          </span><span class="c1">// 1</span>
+</span></code></pre></div></p>
+<p><strong>Piège à éviter</strong> :
+- <strong>Division entière</strong> : <code>5 / 2</code> donne <code>2</code> (et non <code>2.5</code>).
+    - <strong>Solution</strong> : Utiliser <code>double</code> pour obtenir un résultat décimal :
+      <div class="language-csharp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// 2.5</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="22-operateurs-daffectation-composes"><strong>2.2 Opérateurs d’affectation composés</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Équivalent</th>
+<th>Exemple</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+=</code></td>
+<td><code>a = a + b</code></td>
+<td><code>a += 3</code></td>
+<td><code>a = a + 3</code></td>
+</tr>
+<tr>
+<td><code>-=</code></td>
+<td><code>a = a - b</code></td>
+<td><code>a -= 3</code></td>
+<td><code>a = a - 3</code></td>
+</tr>
+<tr>
+<td><code>*=</code></td>
+<td><code>a = a * b</code></td>
+<td><code>a *= 3</code></td>
+<td><code>a = a * 3</code></td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td><code>a = a / b</code></td>
+<td><code>a /= 3</code></td>
+<td><code>a = a / 3</code></td>
+</tr>
+<tr>
+<td><code>%=</code></td>
+<td><code>a = a % b</code></td>
+<td><code>a %= 3</code></td>
+<td><code>a = a % 3</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemple</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">compteur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">compteur</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// compteur = 5</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">compteur</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// compteur = 10</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="23-operateurs-de-comparaison"><strong>2.3 Opérateurs de comparaison</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Nom</th>
+<th>Exemple</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Égal à</td>
+<td><code>5 == 3</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Différent de</td>
+<td><code>5 != 3</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Supérieur à</td>
+<td><code>5 &gt; 3</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Inférieur à</td>
+<td><code>5 &lt; 3</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Supérieur ou égal</td>
+<td><code>5 &gt;= 3</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Inférieur ou égal</td>
+<td><code>5 &lt;= 3</code></td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemple</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">estMajeur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">18</span><span class="p">;</span><span class="w"> </span><span class="c1">// true</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Est majeur ? {estMajeur}&quot;</span><span class="p">);</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="24-operateurs-booleens-et-logique-booleenne"><strong>2.4 📚 Opérateurs booléens et logique booléenne</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Nom</th>
+<th>Exemple</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>ET logique</td>
+<td><code>true &amp;&amp; false</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>\|\|</code></td>
+<td>OU logique</td>
+<td><code>true \|\| false</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>NON logique</td>
+<td><code>!true</code></td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemple</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;ET : {a &amp;&amp; b}&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// false</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;OU : {a || b}&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;NON : {!a}&quot;</span><span class="p">);</span><span class="w">   </span><span class="c1">// false</span>
+</span></code></pre></div></p>
+<p><strong>Piège à éviter</strong> :
+- <strong>Confondre <code>=</code> (affectation) et <code>==</code> (comparaison)</strong> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// ❌ Erreur : affecte 18 à age, puis évalue age (toujours vrai si age != 0)</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">18</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// ✅ Correct</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="rappel-algebre-de-boole-et-operateurs-en-c"><strong>🔹 Rappel : Algèbre de Boole et opérateurs en C#</strong></h4>
+<h5 id="241-definitions-formelles"><strong>2.4.1 Définitions formelles</strong></h5>
+<ul>
+<li><strong>Ensemble de base</strong> : <code>{Vrai (true), Faux (false)}</code> noté <code>{V, F}</code>.</li>
+<li><strong>Opérateurs</strong> :<ul>
+<li><strong>Négation (<code>!</code>)</strong> : Opérateur <strong>unaire</strong> (1 opérande).<ul>
+<li><code>!V = F</code>, <code>!F = V</code>.</li>
+</ul>
+</li>
+<li><strong>ET (<code>&amp;</code>)</strong> : Opérateur <strong>binaire</strong> (2 opérandes).<ul>
+<li><code>V &amp; V = V</code>, <code>V &amp; F = F</code>, <code>F &amp; V = F</code>, <code>F &amp; F = F</code>.</li>
+</ul>
+</li>
+<li><strong>OU (<code>|</code>)</strong> : Opérateur <strong>binaire</strong>.<ul>
+<li><code>V | V = V</code>, <code>V | F = V</code>, <code>F | V = V</code>, <code>F | F = F</code>.</li>
+</ul>
+</li>
+<li><strong>OU Exclusif (<code>^</code>)</strong> : Opérateur <strong>binaire</strong>.<ul>
+<li><code>V ^ V = F</code>, <code>V ^ F = V</code>, <code>F ^ V = V</code>, <code>F ^ F = F</code>.</li>
+<li><em>Interprétation</em> : "L’un <strong>ou</strong> l’autre, mais <strong>pas les deux</strong>".</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Table de vérité complète</strong> (à afficher au tableau ou en slide) :</p>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>!p</th>
+<th>p &amp; q</th>
+<th>p | q</th>
+<th>p ^ q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>V</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h5 id="242-difference-entre-et"><strong>2.4.2 Différence entre <code>&amp;</code>/<code>|</code> et <code>&amp;&amp;</code>/<code>||</code></strong></h5>
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Nom</th>
+<th>Évaluation</th>
+<th>Cas d’usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;</code></td>
+<td>ET logique</td>
+<td><strong>Toujours</strong> évalue les 2 opérandes</td>
+<td>Opérations <strong>bit à bit</strong> (rare en logique booléenne pure).</td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>ET conditionnel</td>
+<td><strong>Court-circuit</strong> : si <code>p</code> est <code>false</code>, <code>q</code> n’est <strong>pas évalué</strong></td>
+<td><strong>Recommandé</strong> pour les conditions (ex: <code>if (x &gt; 0 &amp;&amp; x &lt; 10)</code>).</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>OU logique</td>
+<td><strong>Toujours</strong> évalue les 2 opérandes</td>
+<td>Opérations <strong>bit à bit</strong>.</td>
+</tr>
+<tr>
+<td><code>\|\|</code></td>
+<td>OU conditionnel</td>
+<td><strong>Court-circuit</strong> : si <code>p</code> est <code>true</code>, <code>q</code> n’est <strong>pas évalué</strong></td>
+<td><strong>Recommandé</strong> pour les conditions (ex: <code>if (x == 0 || y == 0)</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemple de court-circuit</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w"> </span><span class="c1">// Pas d&#39;erreur : si x == 0, (10 / x) n&#39;est pas évalué !</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">resultat</span><span class="p">);</span><span class="w"> </span><span class="c1">// false</span>
+</span></code></pre></div>
+→ Si on avait utilisé <code>&amp;</code> au lieu de <code>&amp;&amp;</code>, le programme aurait <strong>planté</strong> à cause de la division par zéro.</p>
+<p><strong>⚠️ Piège à éviter</strong> :
+- Utiliser <code>&amp;</code> ou <code>|</code> à la place de <code>&amp;&amp;</code> ou <code>||</code> dans des <strong>conditions</strong> peut entraîner des <strong>erreurs d’exécution</strong> (ex : accès à un objet <code>null</code>).
+- <strong>Règle</strong> : Toujours utiliser <code>&amp;&amp;</code> et <code>||</code> pour les <strong>conditions logiques</strong> en C#.</p>
+<hr />
+<h5 id="243-priorite-des-operateurs-booleens"><strong>2.4.3 Priorité des opérateurs booléens</strong></h5>
+<p>Ordre de priorité (du plus prioritaire au moins prioritaire) :
+1. <code>!</code> (négation)
+2. <code>&amp;</code> (ET logique)
+3. <code>^</code> (OU exclusif)
+4. <code>|</code> (OU logique)
+5. <code>&amp;&amp;</code> (ET conditionnel)
+6. <code>\|\|</code> (OU conditionnel)</p>
+<p><strong>Exemple</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">p</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// Équivaut à : ((!p) &amp; q) || r</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="c1">// Calcul :</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="c1">// 1. !p → false</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="c1">// 2. false &amp; q → false</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="c1">// 3. false || r → true</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">resultat</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</span></code></pre></div></p>
+<p><strong>Astuce</strong> : Utiliser des <strong>parenthèses</strong> pour clarifier l’ordre d’évaluation :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">q</span><span class="p">))</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// Plus lisible</span>
+</span></code></pre></div></p>
+<hr />
+<h5 id="244-exemples-concrets-en-c"><strong>2.4.4 Exemples concrets en C#</strong></h5>
+<p><strong>Cas 1 : Validation d’un mot de passe</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">motDePasse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Azerty123!&quot;</span><span class="p">;</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">aMajuscule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">motDePasse</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="kt">char</span><span class="p">.</span><span class="n">IsUpper</span><span class="p">);</span><span class="w"> </span><span class="c1">// true si au moins une majuscule</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="kt">bool</span><span class="w"> </span><span class="n">aChiffre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">motDePasse</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="kt">char</span><span class="p">.</span><span class="n">IsDigit</span><span class="p">);</span><span class="w">     </span><span class="c1">// true si au moins un chiffre</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="kt">bool</span><span class="w"> </span><span class="n">aSymbole</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">motDePasse</span><span class="p">.</span><span class="n">Any</span><span class="p">(</span><span class="kt">char</span><span class="p">.</span><span class="n">IsSymbol</span><span class="p">);</span><span class="w">   </span><span class="c1">// true si au moins un symbole</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="kt">bool</span><span class="w"> </span><span class="n">estValide</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aMajuscule</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">aChiffre</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">aSymbole</span><span class="p">;</span><span class="w"> </span><span class="c1">// ET logique</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Mot de passe valide ? {estValide}&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</span></code></pre></div></p>
+<p><strong>Cas 2 : Jeu "Pierre-Feuille-Ciseaux"</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">choixJoueur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pierre&quot;</span><span class="p">;</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="kt">string</span><span class="w"> </span><span class="n">choixOrdi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;feuille&quot;</span><span class="p">;</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="kt">bool</span><span class="w"> </span><span class="n">joueurGagne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">choixJoueur</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;pierre&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">choixOrdi</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;ciseaux&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">                   </span><span class="p">(</span><span class="n">choixJoueur</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;feuille&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">choixOrdi</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;pierre&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">                   </span><span class="p">(</span><span class="n">choixJoueur</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;ciseaux&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">choixOrdi</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;feuille&quot;</span><span class="p">);</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Le joueur gagne ? {joueurGagne}&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// false</span>
+</span></code></pre></div></p>
+<p><strong>Cas 3 : Détection d’une année bissextile</strong>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">annee</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2024</span><span class="p">;</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">estBissextile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">annee</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">annee</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">annee</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;{annee} est bissextile ? {estBissextile}&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="exercices-pour-pratiquer-la-logique-booleenne"><strong>💡 Exercices pour pratiquer la logique booléenne</strong></h2>
+<p><strong>Objectifs</strong> :
+- Maîtriser les <strong>tables de vérité</strong>.
+- Écrire des <strong>expressions booléennes</strong> complexes.
+- Comprendre le <strong>court-circuit</strong> (<code>&amp;&amp;</code>, <code>||</code>).
+- Appliquer la logique booléenne à des <strong>cas concrets</strong>.</p>
+<hr />
+<h3 id="niveau-1-evaluation-dexpressions-simples"><strong>📌 Niveau 1 : Évaluation d’expressions simples</strong></h3>
+<p><strong>Consigne</strong> : Pour chaque expression, déterminer le <strong>résultat</strong> et le <strong>type du résultat</strong> (si applicable). Si l’expression est invalide, écrire "impossible".</p>
+<table>
+<thead>
+<tr>
+<th><strong>Expression</strong></th>
+<th><strong>Résultat</strong></th>
+<th><strong>Type du résultat</strong></th>
+<th><strong>Explication</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1 + 4</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>(1 &lt;= 2)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>"to" + "to"</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>"to" == "to"</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>(1 &gt; 3)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>"bon" + "jour"</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>"6" + "thème"</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>"souris" &gt; "elephant"</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>(3 == 3) &gt; (3 == 4)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>`"fromage"</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>true &amp; false</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>1 &amp; 2</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="niveau-2-construction-de-tables-de-verite"><strong>📌 Niveau 2 : Construction de tables de vérité</strong></h3>
+<p><strong>Consigne</strong> : Compléter les tables de vérité pour les expressions suivantes.</p>
+<h4 id="exercice-1-p-q"><strong>Exercice 1 : <code>!(p &amp; q)</code></strong></h4>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p &amp; q</th>
+<th>!(p &amp; q)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interprétation</strong> : <code>!(p &amp; q)</code> est équivalent à la <strong>loi de De Morgan</strong> <code>!p | !q</code>.</p>
+<hr />
+<h4 id="exercice-2-p-q-p"><strong>Exercice 2 : <code>p ^ (q | !p)</code></strong></h4>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>!p</th>
+<th>q | !p</th>
+<th>p ^ (q | !p)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="exercice-3-p-q-p"><strong>Exercice 3 : <code>(p || q) &amp;&amp; !p</code></strong></h4>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>p | q</th>
+<th>!p</th>
+<th>(p | q) &amp;&amp; !p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>V</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V</td>
+<td>F</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>V</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interprétation</strong> : Cette expression est équivalente à <code>q &amp;&amp; !p</code> (car si <code>p</code> est vrai, le résultat est faux).</p>
+<hr />
+<h3 id="3-conversions-de-types"><strong>🔹 3. Conversions de types</strong></h3>
+<h4 id="31-conversions-implicites"><strong>3.1 Conversions implicites</strong></h4>
+<ul>
+<li>Effectuées <strong>automatiquement</strong> par C# lorsque la conversion est <strong>sûre</strong> (pas de perte de données).</li>
+<li><strong>Exemples</strong> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// Conversion implicite int → double (sécurisée)</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// 10.0</span>
+</span></code></pre></div></li>
+</ul>
+<h4 id="32-conversions-explicites-cast"><strong>3.2 Conversions explicites (Cast)</strong></h4>
+<ul>
+<li>Nécessaires lorsque la conversion <strong>peut entraîner une perte de données</strong> (ex: <code>double</code> → <code>int</code>).</li>
+<li><strong>Syntaxe</strong> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">type</span><span class="w"> </span><span class="n">cible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">type</span><span class="p">)</span><span class="n">valeur</span><span class="p">;</span>
+</span></code></pre></div></li>
+<li><strong>Exemple</strong> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.5</span><span class="p">;</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// Cast explicite (perte de la partie décimale)</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 10</span>
+</span></code></pre></div></li>
+</ul>
+<p><strong>Piège à éviter</strong> :
+- <strong>Perte de données</strong> :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">;</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">petitNombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="p">)</span><span class="n">nombre</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌ Dépassement de capacité (short max = 32767)</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">petitNombre</span><span class="p">);</span><span class="w"> </span><span class="c1">// -29496 (valeur incorrecte)</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="33-methodes-de-conversion-utiles"><strong>3.3 Méthodes de conversion utiles</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Description</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ToString()</code></td>
+<td>Convertit une valeur en <code>string</code></td>
+<td><code>int age = 20; string ageTexte = age.ToString();</code></td>
+</tr>
+<tr>
+<td><code>Parse()</code></td>
+<td>Convertit une <code>string</code> en type spécifié</td>
+<td><code>string texte = "25"; int nombre = int.Parse(texte);</code></td>
+</tr>
+<tr>
+<td><code>Convert.ToType()</code></td>
+<td>Convertit une valeur en un type spécifié</td>
+<td><code>string texte = "3.14"; double nombre = Convert.ToDouble(texte);</code></td>
+</tr>
+<tr>
+<td><code>TryParse()</code></td>
+<td>Essaye de convertir une <code>string</code> (sans lever d’erreur)</td>
+<td><code>bool succes = int.TryParse(texte, out int nombre);</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemple avec <code>TryParse</code> (recommandé pour éviter les erreurs)</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;25&quot;</span><span class="p">;</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nombre</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&quot;Conversion réussie : {nombre}&quot;</span><span class="p">);</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;La saisie n&#39;est pas un nombre entier.&quot;</span><span class="p">);</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Pourquoi <code>TryParse</code> ?</strong> :
+- <code>int.Parse()</code> lève une exception (<code>FormatException</code>) si la chaîne n’est pas un nombre.
+- <code>TryParse</code> retourne <code>false</code> et ne lève pas d’exception (plus sûr pour les entrées utilisateur).</p>
+<hr />
+<h2 id="partie-tp"><strong>💻 Partie TP</strong></h2>
+<p><strong>Objectif</strong> : Appliquer les notions de variables, types de données et opérateurs à travers des exercices concrets.</p>
+<hr />
+<h3 id="tp-1-convertisseur-de-temperatures"><strong>📌 TP 1 : Convertisseur de températures</strong></h3>
+<p><strong>Compétences visées</strong> :
+- Utiliser des variables de type <code>double</code>.
+- Effectuer des calculs arithmétiques.
+- Interagir avec l’utilisateur via <code>Console.ReadLine()</code>.</p>
+<hr />
+<h4 id="enonce"><strong>🔹 Énoncé</strong></h4>
+<p>Écrire un programme qui :
+1. Demande à l’utilisateur de saisir une <strong>température en degrés Celsius</strong>.
+2. Convertit cette température en <strong>degrés Fahrenheit</strong> (formule : <code>F = C × 9/5 + 32</code>).
+3. Affiche le résultat avec 2 décimales.</p>
+<p><strong>Exemple d’exécution</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Saisissez la température en Celsius : 25
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>25°C = 77.00°F
+</span></code></pre></div></p>
+<hr />
+<h4 id="etapes-detaillees"><strong>🔹 Étapes détaillées</strong></h4>
+<ol>
+<li>
+<p><strong>Créer un nouveau projet</strong> :
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>TP2_ConvertisseurTemperature
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">cd</span><span class="w"> </span>TP2_ConvertisseurTemperature
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>code<span class="w"> </span>.
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Écrire le code</strong> :
+   <div class="language-csharp highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="w">        </span><span class="c1">// 1. Demander la température en Celsius et récupérer la valeur saisie dans une variable</span>
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="w">        </span><span class="c1">// 2. Convertir la saisie en double</span>
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>
+</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="w">        </span><span class="c1">// 3. Calculer la température en Fahrenheit</span>
+</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>
+</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="w">        </span><span class="c1">// 4. Afficher le résultat avec 2 décimales</span>
+</span><span id="__span-39-12"><a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-39-13"><a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Exécuter et tester</strong> :</p>
+<ul>
+<li>Tester avec différentes valeurs (ex: <code>0</code>, <code>100</code>, <code>-40</code>).</li>
+<li>Vérifier que le résultat est correct (ex: <code>0°C = 32°F</code>, <code>100°C = 212°F</code>).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="pieges-et-solutions"><strong>🔹 Pièges et solutions</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Problème</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Erreur <code>Input string was not in a correct format</code></td>
+<td>L’utilisateur saisit un texte non numérique</td>
+<td>Utiliser <code>double.TryParse</code> pour éviter l’erreur.</td>
+</tr>
+<tr>
+<td>Résultat incorrect pour les négatifs</td>
+<td>Mauvaise priorité des opérateurs</td>
+<td>Vérifier que la formule est bien <code>C * 9/5 + 32</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="tp-2-calcul-de-moyenne"><strong>📌 TP 2 : Calcul de moyenne</strong></h3>
+<p><strong>Compétences visées</strong> :
+- Utiliser des variables de type <code>double</code> et <code>int</code>.
+- Effectuer des calculs avec des divisions décimales.
+- Arrondir un résultat avec <code>Math.Round</code>.</p>
+<hr />
+<h4 id="enonce_1"><strong>🔹 Énoncé</strong></h4>
+<p>Écrire un programme qui :
+1. Demande à l’utilisateur de saisir <strong>3 notes sur 20</strong> (une par une).
+2. Calcule la <strong>moyenne</strong> des 3 notes.
+3. Affiche la moyenne <strong>arrondie à 2 décimales</strong>.</p>
+<p><strong>Exemple d’exécution</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Saisissez la note 1 : 12
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>Saisissez la note 2 : 15
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>Saisissez la note 3 : 14
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>Moyenne : 13.67
+</span></code></pre></div></p>
+<hr />
+<h4 id="etapes-detaillees_1"><strong>🔹 Étapes détaillées</strong></h4>
+<ol>
+<li>
+<p><strong>Créer un nouveau projet</strong> :
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>TP2_MoyenneNotes
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nb">cd</span><span class="w"> </span>TP2_MoyenneNotes
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>code<span class="w"> </span>.
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Écrire le code</strong> :
+   <div class="language-csharp highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">        </span><span class="c1">// 1. Demander les 3 notes</span>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="w">        </span><span class="c1">// 2. Calculer la moyenne</span>
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>
+</span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="w">        </span><span class="c1">// 3. Arrondir à 2 décimales et afficher</span>
+</span><span id="__span-42-10"><a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a>
+</span><span id="__span-42-11"><a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-42-12"><a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Exécuter et tester</strong> :</p>
+<ul>
+<li>Tester avec des notes entières et décimales (ex: <code>12</code>, <code>15.5</code>, <code>14.25</code>).</li>
+<li>Vérifier que la moyenne est correctement calculée et arrondie.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="pieges-et-solutions_1"><strong>🔹 Pièges et solutions</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Problème</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Division entière (ex: <code>(12 + 15 + 14) / 3 = 13</code>)</td>
+<td>Utilisation de <code>int</code> au lieu de <code>double</code></td>
+<td>Diviser par <code>3.0</code> (et non <code>3</code>) pour forcer une division décimale.</td>
+</tr>
+<tr>
+<td>Arrondi incorrect</td>
+<td>Utilisation de <code>Math.Round</code> avec un mauvais nombre de décimales</td>
+<td>Utiliser <code>Math.Round(moyenne, 2)</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="tp-3-jeu-devine-le-nombre-version-simplifiee"><strong>📌 TP 3 : Jeu "Devine le nombre" (version simplifiée)</strong></h3>
+<p><strong>Compétences visées</strong> :
+- Utiliser <code>Random</code> pour générer un nombre aléatoire.
+- Comparer des valeurs avec des opérateurs (<code>&gt;</code>, <code>&lt;</code>, <code>==</code>).
+- Utiliser des variables de type <code>int</code> et des boucles (préparation pour la Séance 4).</p>
+<hr />
+<h4 id="enonce_2"><strong>🔹 Énoncé</strong></h4>
+<p>Écrire un programme qui :
+1. Génère un <strong>nombre aléatoire entre 1 et 100</strong> (utiliser la classe <code>Random</code>).
+2. Demande à l’utilisateur de deviner ce nombre.
+3. Affiche <strong>"Trop grand"</strong>, <strong>"Trop petit"</strong> ou <strong>"Gagné !"</strong> selon la saisie.
+4. <strong>Arrête le programme</strong> lorsque l’utilisateur a trouvé le nombre.</p>
+<p><strong>Exemple d’exécution</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>Devinez le nombre entre 1 et 100 : 50
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>Trop grand !
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>Devinez le nombre entre 1 et 100 : 25
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>Trop petit !
+</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>Devinez le nombre entre 1 et 100 : 37
+</span><span id="__span-43-6"><a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>Gagné !
+</span></code></pre></div></p>
+<hr />
+<h4 id="etapes-detaillees_2"><strong>🔹 Étapes détaillées</strong></h4>
+<ol>
+<li>
+<p><strong>Créer un nouveau projet</strong> :
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>TP2_DevineNombre
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="nb">cd</span><span class="w"> </span>TP2_DevineNombre
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>code<span class="w"> </span>.
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Écrire le code</strong> :
+   <div class="language-csharp highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">        </span><span class="c1">// 1. Générer un nombre aléatoire entre 1 et 100</span>
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="w">        </span><span class="c1">// 2. Demander à l&#39;utilisateur de deviner</span>
+</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>
+</span><span id="__span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="w">        </span><span class="c1">// 3. Comparer et afficher un message</span>
+</span><span id="__span-45-10"><a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a>
+</span><span id="__span-45-11"><a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-45-12"><a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Exécuter et tester</strong> :</p>
+<ul>
+<li>Tester plusieurs fois pour vérifier que le nombre secret change à chaque exécution.</li>
+<li>Vérifier que les messages "Trop grand" et "Trop petit" s’affichent correctement.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="ameliorations-possibles-pour-les-rapides"><strong>🔹 Améliorations possibles (pour les rapides)</strong></h4>
+<ol>
+<li>
+<p><strong>Ajouter une boucle</strong> (préparation pour la Séance 4) :</p>
+<ul>
+<li>Utiliser une boucle <code>while</code> pour permettre à l’utilisateur de <strong>réessayer</strong> jusqu’à ce qu’il trouve le nombre.</li>
+<li><em>Indice</em> : La structure sera vue en détail dans la prochaine séance, mais voici un exemple :
+  <div class="language-csharp highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">essai</span><span class="p">;</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">    </span><span class="c1">//code à compléter pour demander la saisie et comparer</span>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">essai</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">nombreSecret</span><span class="p">);</span>
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Limiter le nombre d’essais</strong> :</p>
+<ul>
+<li>Ajouter un compteur pour limiter à 5 essais maximum.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="pieges-et-solutions_2"><strong>🔹 Pièges et solutions</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Problème</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le nombre secret est toujours le même</td>
+<td><code>Random</code> est initialisé avec une graine fixe</td>
+<td><code>Random aleatoire = new Random();</code> utilise l’heure système comme graine.</td>
+</tr>
+<tr>
+<td>Erreur si l’utilisateur saisit un texte</td>
+<td><code>int.Parse</code> lève une exception</td>
+<td>Utiliser <code>int.TryParse</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ressources-complementaires"><strong>📌 Ressources complémentaires</strong></h2>
+<ul>
+<li><strong>Documentation officielle</strong> :<ul>
+<li><a href="https://learn.microsoft.com/fr-fr/dotnet/csharp/fundamentals/types/">Types de données C# (Microsoft)</a></li>
+<li><a href="https://learn.microsoft.com/fr-fr/dotnet/csharp/language-reference/operators/">Opérateurs C#</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="objectifs-dapprentissage-valides"><strong>🎯 Objectifs d’apprentissage validés</strong></h2>
+<p>À la fin de cette séance, vous devez être capables de :
+1. <strong>Déclarer et initialiser</strong> des variables avec les types de base (<code>int</code>, <code>double</code>, <code>string</code>, <code>bool</code>).
+2. <strong>Effectuer des calculs</strong> avec les opérateurs arithmétiques et logiques.
+3. <strong>Convertir des types</strong> (implicite et explicite) et utiliser <code>Parse</code>/<code>TryParse</code>.
+4. <strong>Interagir avec l’utilisateur</strong> via <code>Console.ReadLine()</code>.
+5. <strong>Identifier et corriger</strong> les erreurs courantes (division entière, conversions, etc.).</p>
+<hr />
+<h2 id="transition-vers-la-seance-3"><strong>🔜 Transition vers la Séance 3</strong></h2>
+<p><strong>Annonce</strong> :</p>
+<blockquote>
+<p>"La prochaine séance portera sur les <strong>structures conditionnelles</strong> (<code>if</code>, <code>else</code>, <code>switch</code>). Vous allez apprendre à écrire des programmes qui <strong>prennent des décisions</strong> en fonction des données, comme un jeu qui vérifie si un nombre est pair ou impair, ou un système de notation qui attribue une mention en fonction d’une note. Préparez-vous à utiliser <code>if</code>, <code>else if</code>, et <code>else</code> !"</p>
+</blockquote>
+<p><strong>Devoir à la maison (optionnel)</strong> :
+- Reprendre le <strong>TP3 (Devine le nombre)</strong> et ajouter une boucle <code>while</code> pour permettre à l’utilisateur de <strong>réessayer</strong> jusqu’à ce qu’il trouve le nombre (préparation pour la Séance 4).
+- Lire la <a href="https://learn.microsoft.com/fr-fr/dotnet/csharp/language-reference/statements/selection-statements">documentation sur les conditions en C#</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
