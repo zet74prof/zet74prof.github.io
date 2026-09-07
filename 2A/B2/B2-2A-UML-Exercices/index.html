@@ -1196,6 +1196,39 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classes-a-modeliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes à modéliser :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consignes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consignes :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variante-pour-aller-plus-loin" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1324,6 +1357,39 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contexte :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classes-a-modeliser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes à modéliser :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consignes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consignes :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variante-pour-aller-plus-loin" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1380,22 +1446,28 @@
 
 <h1 id="uml-diagramme-de-classes-exercices">UML: Diagramme de classes - Exercices</h1>
 <h2 id="exercice-1-navigabilite"><strong>Exercice 1 : Navigabilité</strong></h2>
-<p><strong>Contexte</strong> :
-Vous concevez un <strong>système de gestion pour une bibliothèque universitaire</strong> avec les contraintes suivantes :
-- Fonctionnalité principale : Les étudiants doivent pouvoir consulter <strong>la liste des livres qu’ils ont empruntés</strong> (historique d’emprunts).
-- Fonctionnalité secondaire : Le système doit permettre d’afficher <strong>les informations d’un livre</strong> (titre, ISBN, auteurs) lorsqu’un étudiant le sélectionne.
-- Contrainte technique : Pour des raisons de performance, <strong>on évite les requêtes bidirectionnelles inutiles</strong>. La base de données est optimisée pour les lectures fréquentes (ex : afficher les livres d’un étudiant), mais pas pour les mises à jour complexes.</p>
-<p><strong>Classes à modéliser</strong> :
-- <code>Etudiant</code> : <code>nom</code>, <code>prénom</code>, <code>numéroEtudiant</code>.
-- <code>Livre</code> : <code>titre</code>, <code>ISBN</code>, <code>datePublication</code>.
-- <code>Auteur</code> : <code>nom</code>, <code>nationalité</code>.</p>
-<p><strong>Consignes</strong> :
-1. Dessinez un diagramme de classe avec les associations entre <code>Etudiant</code>, <code>Livre</code>, et <code>Auteur</code>.
-2. <strong>Définissez la navigabilité</strong> pour chaque association en respectant les <strong>exigences suivantes</strong> :
-    - Un étudiant doit pouvoir <strong>accéder directement à la liste des livres qu’il a empruntés</strong> (pour son historique).
-    - Un livre doit pouvoir <strong>accéder directement à ses auteurs</strong> (pour afficher les informations bibliographiques).
-    - <strong>Aucune autre navigabilité n’est autorisée</strong> (ex : on ne peut pas naviguer de <code>Auteur</code> vers <code>Livre</code> ou de <code>Livre</code> vers <code>Etudiant</code>).
-3. <strong>Justifiez chaque choix</strong> en expliquant pourquoi les autres navigabilités sont exclues (ex : performance, simplicité, besoins métiers).</p>
+<h3 id="contexte"><strong>Contexte</strong> :</h3>
+<p>Vous concevez un <strong>système de gestion pour une bibliothèque universitaire</strong> avec les contraintes suivantes :
+- <strong>Fonctionnalité principale</strong> : Les étudiants doivent pouvoir consulter <strong>la liste des livres qu’ils ont empruntés</strong> (historique d’emprunts).
+- <strong>Fonctionnalité secondaire</strong> : Le système doit permettre d’afficher <strong>les informations d’un livre</strong> (titre, ISBN, auteurs) lorsqu’un étudiant le sélectionne.
+- <strong>Contrainte technique</strong> : Pour des raisons de performance, <strong>on évite les requêtes bidirectionnelles inutiles</strong>. La base de données est optimisée pour les lectures fréquentes (ex : afficher les livres d’un étudiant), mais pas pour les mises à jour complexes.</p>
+<h3 id="classes-a-modeliser"><strong>Classes à modéliser</strong> :</h3>
+<ul>
+<li><code>Etudiant</code> : <code>nom</code>, <code>prénom</code>, <code>numéroEtudiant</code>.</li>
+<li><code>Livre</code> : <code>titre</code>, <code>ISBN</code>, <code>datePublication</code>.</li>
+<li><code>Auteur</code> : <code>nom</code>, <code>nationalité</code>.</li>
+</ul>
+<h3 id="consignes"><strong>Consignes</strong> :</h3>
+<ol>
+<li>Dessinez un diagramme de classe avec les associations entre <code>Etudiant</code>, <code>Livre</code>, et <code>Auteur</code>.</li>
+<li><strong>Définissez la navigabilité</strong> pour chaque association en respectant les <strong>exigences suivantes</strong> :<ul>
+<li>Un étudiant doit pouvoir <strong>accéder directement à la liste des livres qu’il a empruntés</strong> (pour son historique).</li>
+<li>Un livre doit pouvoir <strong>accéder directement à ses auteurs</strong> (pour afficher les informations bibliographiques).</li>
+<li><strong>Aucune autre navigabilité n’est autorisée</strong> (ex : on ne peut pas naviguer de <code>Auteur</code> vers <code>Livre</code> ou de <code>Livre</code> vers <code>Etudiant</code>).</li>
+</ul>
+</li>
+<li><strong>Justifiez chaque choix</strong> en expliquant pourquoi les autres navigabilités sont exclues (ex : performance, simplicité, besoins métiers).</li>
+</ol>
 <hr />
 <h3 id="variante-pour-aller-plus-loin"><strong>Variante pour aller plus loin</strong></h3>
 <p><strong>Nouvelle exigence</strong> :
