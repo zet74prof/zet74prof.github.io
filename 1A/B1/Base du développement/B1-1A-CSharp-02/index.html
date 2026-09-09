@@ -3531,9 +3531,9 @@ Exemple :
 <td><code>false</code></td>
 </tr>
 <tr>
-<td><code>\|\|</code></td>
+<td><code>||</code></td>
 <td>OU logique</td>
-<td><code>true \|\| false</code></td>
+<td><code>true || false</code></td>
 <td><code>true</code></td>
 </tr>
 <tr>
@@ -3660,7 +3660,7 @@ Exemple :
 <td>Opérations <strong>bit à bit</strong>.</td>
 </tr>
 <tr>
-<td><code>\|\|</code></td>
+<td><code>||</code></td>
 <td>OU conditionnel</td>
 <td><strong>Court-circuit</strong> : si <code>p</code> est <code>true</code>, <code>q</code> n’est <strong>pas évalué</strong></td>
 <td><strong>Recommandé</strong> pour les conditions (ex: <code>if (x == 0 || y == 0)</code>).</td>
@@ -3684,7 +3684,7 @@ Exemple :
 3. <code>^</code> (OU exclusif)
 4. <code>|</code> (OU logique)
 5. <code>&amp;&amp;</code> (ET conditionnel)
-6. <code>\|\|</code> (OU conditionnel)</p>
+6. <code>||</code> (OU conditionnel)</p>
 <p><strong>Exemple</strong> :
 <div class="language-csharp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 </span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">p</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="c1">// Équivaut à : ((!p) &amp; q) || r</span>
@@ -3797,7 +3797,7 @@ Exemple :
 <td></td>
 </tr>
 <tr>
-<td>`"fromage"</td>
+<td><code>"fromage" || "dessert"</code></td>
 <td></td>
 <td></td>
 <td></td>
@@ -4041,8 +4041,8 @@ Exemple :
 <ol>
 <li>
 <p><strong>Créer un nouveau projet</strong> :
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>TP2_ConvertisseurTemperature
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">cd</span><span class="w"> </span>TP2_ConvertisseurTemperature
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>TP1_ConvertisseurTemperature
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">cd</span><span class="w"> </span>TP1_ConvertisseurTemperature
 </span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>code<span class="w"> </span>.
 </span></code></pre></div></p>
 </li>
@@ -4195,8 +4195,8 @@ Exemple :
 <ol>
 <li>
 <p><strong>Créer un nouveau projet</strong> :
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>TP2_DevineNombre
-</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="nb">cd</span><span class="w"> </span>TP2_DevineNombre
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>TP3_DevineNombre
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="nb">cd</span><span class="w"> </span>TP3_DevineNombre
 </span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>code<span class="w"> </span>.
 </span></code></pre></div></p>
 </li>
