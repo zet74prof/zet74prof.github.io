@@ -1,0 +1,2040 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../B1/B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/">
+      
+      
+        <link rel="next" href="../B2-2A-UML-Exercices/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Symfony : les services et le conteneur de services - zet74prof - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#symfony-les-services-et-le-conteneur-de-services" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="zet74prof - Documentation" class="md-header__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zet74prof - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Symfony : les services et le conteneur de services
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="zet74prof - Documentation" class="md-nav__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zet74prof - Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIO Docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/AP/AP-1A-Bases-Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP 1A Bases Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base du développement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Base du développement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/B1-1A-CSharp-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/B1-1A-CSharp-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/B1-1A-CSharp-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_4" id="__nav_2_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Epreuve semestrielle
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Epreuve semestrielle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que-corrige%CC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrigé : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entraînement : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement2-hopital-corrige%CC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrainement2 hopital corrigé
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/entrainement2-hopital/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Évaluation d'entraînement : Gestion des Rendez-Vous d'un Hôpital Public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Base%20du%20de%CC%81veloppement/Epreuve%20semestrielle/glossaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation Orientée Objet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programmation Orientée Objet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Programmation%20Orient%C3%A9e%20Objet/POO-Cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    POO Cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1A/B1/Programmation%20Orient%C3%A9e%20Objet/POO-TD-ParcAuto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    POO TD ParcAuto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AP/AP-2A-SISIR-Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatisation avec Ansible pour la Réinstallation des PC sous Ubuntu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../B1/B1-1A-Cours-Gestion%20de%20projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours de Gestion de Projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../B1/B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 2A TP Mise en place d'un pipeline CICD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony : les services et le conteneur de services
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony : les services et le conteneur de services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pourquoi-ce-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Pourquoi ce chapitre ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-linjection-de-dependances-dependency-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. L'injection de dépendances (Dependency Injection)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. L&#39;injection de dépendances (Dependency Injection)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-probleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le problème
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-injecter-par-le-constructeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : injecter par le constructeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-dependre-dune-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : dépendre d'une abstraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etude-de-cas-pourquoi-linterface-rend-les-tests-faciles-mock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étude de cas : pourquoi l'interface rend les tests faciles (mock)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-qui-cree-tout-ce-monde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : qui crée tout ce monde ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-utiliser-un-service-dans-un-controleur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Utiliser un service dans un contrôleur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creer-ses-propres-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Créer ses propres services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-la-configuration-par-defaut-configservicesyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. La configuration par défaut : config/services.yaml
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. La configuration par défaut : config/services.yaml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exclure-des-classes-du-conteneur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclure des classes du conteneur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-injecter-autre-chose-que-des-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Injecter autre chose que des services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deboguer-le-conteneur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Déboguer le conteneur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-a-retenir-fiche-bilan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. À retenir (fiche bilan)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B2-2A-UML-Exercices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UML: Diagramme de classes - Exercices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git-Bonnes%20pratiques%20de%20d%C3%A9veloppement%20en%20%C3%A9quipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Bonnes pratiques de développement en équipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Guide-vibe-coder-avec-une-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Guide : Vibe Coder avec une IA (Vibe) pour BTS SIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pourquoi-ce-chapitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Pourquoi ce chapitre ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-linjection-de-dependances-dependency-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. L'injection de dépendances (Dependency Injection)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. L&#39;injection de dépendances (Dependency Injection)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-probleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le problème
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-injecter-par-le-constructeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : injecter par le constructeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-dependre-dune-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : dépendre d'une abstraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etude-de-cas-pourquoi-linterface-rend-les-tests-faciles-mock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étude de cas : pourquoi l'interface rend les tests faciles (mock)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-qui-cree-tout-ce-monde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : qui crée tout ce monde ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-utiliser-un-service-dans-un-controleur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Utiliser un service dans un contrôleur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creer-ses-propres-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Créer ses propres services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-la-configuration-par-defaut-configservicesyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. La configuration par défaut : config/services.yaml
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. La configuration par défaut : config/services.yaml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exclure-des-classes-du-conteneur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exclure des classes du conteneur
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-injecter-autre-chose-que-des-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Injecter autre chose que des services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deboguer-le-conteneur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Déboguer le conteneur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-a-retenir-fiche-bilan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. À retenir (fiche bilan)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="symfony-les-services-et-le-conteneur-de-services">Symfony : les services et le conteneur de services</h1>
+<p><em>Synthèse de cours — BTS SIO 2e année (SLAM), d'après la documentation officielle Symfony (service_container).</em></p>
+<hr />
+<h2 id="1-pourquoi-ce-chapitre">1. Pourquoi ce chapitre ?</h2>
+<p>Dans une application Symfony, <strong>presque tout est fait par des services</strong> : le routage, la sécurité, l'envoi d'e-mails, la gestion des logs… Un <strong>service</strong>, c'est simplement <strong>un objet PHP qui fait un travail précis</strong> (un « outil ») : <code>LoggerInterface</code>, <code>MailerInterface</code>, un gestionnaire de messages, etc.</p>
+<p>Le <strong>conteneur de services</strong> (ou conteneur d'injection de dépendances) est l'objet qui sait <strong>construire ces objets et les connecter entre eux</strong>, et vous les <strong>fournit quand vous en avez besoin</strong>.</p>
+<blockquote>
+<p>🎯 Objectif pédagogique : comprendre l'injection de dépendances, savoir créer ses propres services et les utiliser dans un contrôleur.</p>
+</blockquote>
+<hr />
+<h2 id="2-linjection-de-dependances-dependency-injection">2. L'injection de dépendances (Dependency Injection)</h2>
+<h3 id="le-probleme">Le problème</h3>
+<p>Prenons une classe qui crée elle-même son formateur :</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">// src/Service/MessageGenerator.php</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="x">namespace App\Service;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="x">use App\Formatter\TextFormatter;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="x">class MessageGenerator</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="x">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="x">    public function getHappyMessage(): string</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="x">    {</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="x">        $messages = [&#39;Bravo !&#39;, &#39;Excellent travail !&#39;, &#39;Continue comme ça !&#39;];</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="x">        $formatter = new TextFormatter(); // ⚠️ créé DANS la classe</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="x">        return $formatter-&gt;format($messages[array_rand($messages)]);</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="x">    }</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="x">}</span>
+</span></code></pre></div>
+<p>Trois défauts majeurs :</p>
+<table>
+<thead>
+<tr>
+<th>Défaut</th>
+<th>Conséquence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classe <strong>peu flexible</strong></td>
+<td>Impossible de changer le formateur (ex. HTML au lieu de texte) sans modifier la classe</td>
+</tr>
+<tr>
+<td>Non <strong>configurable</strong></td>
+<td>Tout le code qui l'utilise a exactement le même comportement</td>
+</tr>
+<tr>
+<td>Difficile à <strong>tester</strong></td>
+<td>Impossible de remplacer <code>TextFormatter</code> par un « faux » objet pour les tests unitaires</td>
+</tr>
+</tbody>
+</table>
+<p>👉 <strong>Règle d'or : ne jamais créer ses dépendances avec <code>new</code> à l'intérieur d'une classe.</strong></p>
+<h3 id="etape-1-injecter-par-le-constructeur">Étape 1 : injecter par le constructeur</h3>
+<p>La classe <strong>déclare</strong> ce dont elle a besoin, elle ne le crée plus :</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">class MessageGenerator</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="x">    public function __construct(</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="x">        private TextFormatter $formatter, // la dépendance est injectée</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="x">    ) {</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="x">    }</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="x">    public function getHappyMessage(): string</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="x">    {</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="x">        // ... utilisation de $this-&gt;formatter-&gt;format(...)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="x">    }</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="x">}</span>
+</span></code></pre></div>
+<p>C'est <strong>l'injection de dépendances</strong> : les objets reçoivent leurs dépendances de l'extérieur (ici via le constructeur).</p>
+<h3 id="etape-2-dependre-dune-abstraction">Étape 2 : dépendre d'une abstraction</h3>
+<p>Pour être vraiment flexible, on type avec une <strong>interface</strong> plutôt qu'une classe concrète :</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">// src/Formatter/FormatterInterface.php</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="x">namespace App\Formatter;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="x">interface FormatterInterface</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="x">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="x">    public function format(string $message): string;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="x">}</span>
+</span></code></pre></div>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">class MessageGenerator</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="x">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="x">    public function __construct(</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="x">        private FormatterInterface $formatter, // n&#39;importe quelle implémentation</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="x">    ) {</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="x">    }</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="x">}</span>
+</span></code></pre></div>
+<p>On peut alors injecter un <code>TextFormatter</code>, un <code>HtmlFormatter</code>… ou un <strong>objet factice (mock)</strong> pour les tests.</p>
+<h3 id="etude-de-cas-pourquoi-linterface-rend-les-tests-faciles-mock">Étude de cas : pourquoi l'interface rend les tests faciles (mock)</h3>
+<p>Imaginons que <code>MessageGenerator</code> produise des messages et que nous voulions tester <strong>uniquement la logique de choix du message</strong>, sans dépendre du comportement réel du formateur.</p>
+<p><strong>Cas 1 — sans interface (classe concrète injectée) : impossible à isoler</strong></p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">class MessageGenerator</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="x">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="x">    public function __construct(private TextFormatter $formatter) {}</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="x">    public function getHappyMessage(): string</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="x">    {</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="x">        $messages = [&#39;Bravo !&#39;, &#39;Excellent travail !&#39;, &#39;Continue comme ça !&#39;];</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="x">        return $this-&gt;formatter-&gt;format($messages[array_rand($messages)]);</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="x">    }</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="x">}</span>
+</span></code></pre></div>
+<p>Pour tester, on est <strong>obligé</strong> d'instancier le vrai <code>TextFormatter</code> : le test teste en réalité deux classes à la fois. Si <code>TextFormatter</code> échoue (ou est lent, ou écrit dans un fichier…), le test de <code>MessageGenerator</code> échoue aussi, alors que sa propre logique est correcte.</p>
+<p><strong>Cas 2 — avec interface : on injecte un « faux » formateur</strong></p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="x">// tests/Service/MessageGeneratorTest.php</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="x">use App\Formatter\FormatterInterface;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="x">use App\Service\MessageGenerator;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="x">class UpperCaseFormatter implements FormatterInterface</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="x">{</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="x">    public function format(string $message): string</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="x">    {</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="x">        return mb_strtoupper($message);</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="x">    }</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="x">}</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="x">$generator = new MessageGenerator(new UpperCaseFormatter());</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="x">$message = $generator-&gt;getHappyMessage();</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="x">// on teste SA logique : le message sort bien en majuscules,</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="x">// preuve que MessageGenerator délègue bien au formateur</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="x">assert(mb_strtoupper($message) === $message);</span>
+</span></code></pre></div>
+<p>Ici le mock (<code>UpperCaseFormatter</code>, 5 lignes) est <strong>prévisible et sous notre contrôle</strong> : le test ne peut échouer que si <code>MessageGenerator</code> lui-même a un bug. En pratique, on utilise aussi les mocks générés par <strong>PHPUnit</strong> (<code>createMock(FormatterInterface::class)</code>), qui crée automatiquement un faux objet retournant la valeur qu'on décide :</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="x">$formatter = $this-&gt;createMock(FormatterInterface::class);</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="x">$formatter-&gt;method(&#39;format&#39;)-&gt;willReturn(&#39;OK&#39;);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="x">$generator = new MessageGenerator($formatter);</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="x">// le vrai TextFormatter n&#39;est jamais instancié</span>
+</span></code></pre></div>
+<p><strong>Ce que l'interface nous a apporté :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Sans interface</th>
+<th>Avec interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le test instancie le vrai formateur → test lent, fragile, couplé</td>
+<td>On injecte un faux prévisible → test rapide et isolé</td>
+</tr>
+<tr>
+<td>Un bug du formateur fait échouer le test de <code>MessageGenerator</code></td>
+<td>Le test n'échoue que si la classe testée est en cause</td>
+</tr>
+<tr>
+<td>Impossible de tester les cas limites du formateur depuis le test</td>
+<td>On choisit la valeur de retour du faux (ex. chaîne vide, très longue…)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>À retenir pour les tests</strong> : grâce à l'interface, on peut substituer <strong>n'importe quelle implémentation</strong> au moment du <code>new</code> dans le test — c'est exactement ce que le conteneur fait pour vous en production, avec l'implémentation choisie dans <code>services.yaml</code>.</p>
+</blockquote>
+<h3 id="etape-3-qui-cree-tout-ce-monde">Étape 3 : qui crée tout ce monde ?</h3>
+<p>Nouveau problème : quelqu'un doit instancier tous ces objets, dans le bon ordre, et recréer ce code à chaque évolution d'un constructeur. C'est <strong>le rôle du conteneur de services</strong> : il stocke la « recette » de chaque service, les construit <strong>seulement quand c'est nécessaire</strong> et <strong>une seule fois</strong> (on récupère toujours la même instance).</p>
+<hr />
+<h2 id="3-utiliser-un-service-dans-un-controleur">3. Utiliser un service dans un contrôleur</h2>
+<p>Il suffit de <strong>typer un argument</strong> du contrôleur : Symfony passe automatiquement le bon service.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="x">// src/Controller/ProductController.php</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="x">namespace App\Controller;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="x">use Psr\Log\LoggerInterface;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="x">use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="x">use Symfony\Component\HttpFoundation\Response;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="x">use Symfony\Component\Routing\Attribute\Route;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="x">class ProductController extends AbstractController</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="x">{</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="x">    #[Route(&#39;/products&#39;)]</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="x">    public function list(LoggerInterface $logger): Response</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="x">    {</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="x">        $logger-&gt;info(&#39;Regarde, j\&#39;utilise un service !&#39;);</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="x">        // ...</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="x">    }</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="x">}</span>
+</span></code></pre></div>
+<p><strong>Commandes utiles pour découvrir les services disponibles :</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:autowiring<span class="w">   </span><span class="c1"># services « autowirables » (ceux qu&#39;on peut typer)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container<span class="w">    </span><span class="c1"># TOUS les services du conteneur, avec leur id</span>
+</span></code></pre></div>
+<blockquote>
+<p>ℹ️ Chaque service a un <strong>id</strong> unique dans le conteneur (ex. <code>logger</code>, <code>router.default</code>). Au quotidien, le type-hint suffit : pas besoin de connaître les ids.</p>
+</blockquote>
+<hr />
+<h2 id="4-creer-ses-propres-services">4. Créer ses propres services</h2>
+<p>Bonne pratique : sortir la logique métier du contrôleur et la mettre dans <strong>une classe de service dédiée</strong> (ex. dans <code>src/Service/</code>). Elle devient réutilisable partout.</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="x">#[Route(&#39;/products/new&#39;)]</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="x">public function new(MessageGenerator $messageGenerator): Response</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="x">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="x">    $message = $messageGenerator-&gt;getHappyMessage();</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="x">    $this-&gt;addFlash(&#39;success&#39;, $message);</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="x">    // ...</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="x">}</span>
+</span></code></pre></div>
+<p>Grâce au type-hint, le conteneur <strong>instancie</strong> <code>MessageGenerator</code> (et <strong>injecte lui-même son formateur</strong>). Points clés :</p>
+<ul>
+<li>le service n'est construit <strong>que si on le demande</strong> (économie de mémoire) ;</li>
+<li>il n'est construit <strong>qu'une seule fois</strong> : la même instance est renvoyée à chaque demande.</li>
+</ul>
+<hr />
+<h2 id="5-la-configuration-par-defaut-configservicesyaml">5. La configuration par défaut : <code>config/services.yaml</code></h2>
+<p>Un nouveau projet Symfony démarre avec cette configuration :</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># config/services.yaml</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nt">_defaults</span><span class="p">:</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="nt">autowire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">      </span><span class="c1"># injecte automatiquement les dépendances</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># enregistre automatiquement commands, subscribers...</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="c1"># rend toutes les classes de src/ disponibles comme services</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nt">App\</span><span class="p">:</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../src/&#39;</span>
+</span></code></pre></div>
+<ul>
+<li><strong><code>autowire: true</code></strong> : le conteneur lit les <strong>type-hints du constructeur</strong> et passe les bons services tout seul. Si ce n'est pas possible, une <strong>exception claire</strong> est levée. C'est ce qui fait « disparaître » le problème de création d'objets.</li>
+<li><strong><code>autoconfigure: true</code></strong> : le conteneur détecte le <strong>rôle</strong> de chaque service (commande console, subscriber Twig…) grâce aux interfaces implémentées, et l'intègre automatiquement (via des <em>tags</em> internes, ajoutés pour vous).</li>
+<li><strong><code>App\: resource: '../src/'</code></strong> : chaque classe de <code>src/</code> <strong>peut</strong> être utilisée comme service, son <strong>id étant son nom complet de classe</strong> (<code>App\Service\MessageGenerator</code>). Les classes jamais utilisées sont retirées du conteneur final.</li>
+</ul>
+<h3 id="exclure-des-classes-du-conteneur">Exclure des classes du conteneur</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="nt">App\</span><span class="p">:</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../src/&#39;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">        </span><span class="nt">exclude</span><span class="p">:</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/Entity/&#39;</span><span class="w">        </span><span class="c1"># répertoire à exclure</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/SomeFile.php&#39;</span><span class="w">   </span><span class="c1"># fichier à exclure</span>
+</span></code></pre></div>
+<p>Ou directement dans la classe avec un attribut PHP :</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x">#[Exclude]</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="x">class SomeService { }</span>
+</span></code></pre></div>
+<hr />
+<h2 id="6-injecter-autre-chose-que-des-services">6. Injecter autre chose que des services</h2>
+<p>Tout ne s'autowire pas : paramètres, valeurs scalaires, etc. On utilise alors la section <code>bind</code> ou une configuration explicite.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># config/services.yaml</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nt">_defaults</span><span class="p">:</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">        </span><span class="nt">autowire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="nt">bind</span><span class="p">:</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">            </span><span class="c1"># tout service ayant un argument $adminEmail recevra cette valeur</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">            </span><span class="nt">string $adminEmail</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;contact@monsite.fr&#39;</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">            </span><span class="c1"># un paramètre du conteneur (%...) :</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">            </span><span class="nt">bool $debug</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;%kernel.debug%&#39;</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Paramètres du conteneur</strong> : notés <code>%nom_du_parametre%</code> (ex. <code>%kernel.debug%</code>, <code>%env(MAILER_DSN)%</code>), ils stockent des valeurs de configuration.</li>
+<li>Pour <strong>choisir une implémentation précise</strong> quand une interface a plusieurs implémentations, on définit un <strong>alias</strong> (<code>FormatterInterface: '@App\Formatter\HtmlFormatter'</code>).</li>
+</ul>
+<hr />
+<h2 id="7-deboguer-le-conteneur">7. Déboguer le conteneur</h2>
+<table>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php bin/console debug:autowiring</code></td>
+<td>Liste des services autowirables (à typer dans vos arguments)</td>
+</tr>
+<tr>
+<td><code>php bin/console debug:container</code></td>
+<td>Tous les services et paramètres du conteneur</td>
+</tr>
+<tr>
+<td><code>php bin/console lint:container</code></td>
+<td>Vérifie la validité de la configuration</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 Astuce : <code>debug:container nom_du_service</code> affiche le détail complet d'un service (classe, arguments injectés, tags).</p>
+</blockquote>
+<hr />
+<h2 id="8-a-retenir-fiche-bilan">8. À retenir (fiche bilan)</h2>
+<ol>
+<li>Un <strong>service</strong> = un objet PHP réutilisable qui fait un travail précis ; le <strong>conteneur</strong> sait le construire et l'injecter.</li>
+<li><strong>Injection de dépendances</strong> : les classes <em>reçoivent</em> leurs dépendances (constructeur) au lieu de les créer avec <code>new</code>.</li>
+<li>On dépend d'une <strong>interface</strong>, pas d'une classe concrète → flexibilité + tests faciles (mocks).</li>
+<li>Dans un contrôleur ou un service, <strong>typer l'argument</strong> suffit : <code>public function list(LoggerInterface $logger)</code>.</li>
+<li><code>autowire</code> + <code>autoconfigure</code> + <code>resource: '../src/'</code> : <strong>zéro configuration</strong> dans la plupart des cas.</li>
+<li>Le conteneur construit chaque service <strong>une seule fois</strong>, <strong>seulement si nécessaire</strong>.</li>
+<li>Pour injecter des valeurs simples : section <code>bind</code> et paramètres <code>%...%</code>.</li>
+<li>Commandes de débogage : <code>debug:autowiring</code>, <code>debug:container</code>, <code>lint:container</code>.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
