@@ -2531,7 +2531,7 @@ Une IA, c’est comme un <strong>collègue expérimenté</strong> qui vous donne
 </table>
 <h3 id="exemples-concrets"><strong>Exemples concrets</strong></h3>
 <h4 id="generer-un-fichier-php">🔹 Générer un fichier PHP</h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>vibe<span class="w"> </span>--code<span class="w"> </span><span class="s2">&quot;Crée un fichier PHP classe User avec des propriétés (id, name, email) et des getters/setters.&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>vibe<span class="w"> </span>--code<span class="w"> </span><span class="s2">"Crée un fichier PHP classe User avec des propriétés (id, name, email) et des getters/setters."</span>
 </span></code></pre></div>
 <p>→ Vibe générera un fichier comme ceci :</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">&lt;?php</span>
@@ -2554,7 +2554,7 @@ Une IA, c’est comme un <strong>collègue expérimenté</strong> qui vous donne
 </span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
 </span></code></pre></div>
 <h4 id="expliquer-un-concept">🔹 Expliquer un concept</h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vibe<span class="w"> </span>--explain<span class="w"> </span><span class="s2">&quot;À quoi sert le mot-clé &#39;static&#39; en PHP ?&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vibe<span class="w"> </span>--explain<span class="w"> </span><span class="s2">"À quoi sert le mot-clé 'static' en PHP ?"</span>
 </span></code></pre></div>
 <p>→ Réponse :</p>
 <blockquote>
@@ -2567,7 +2567,7 @@ Une IA, c’est comme un <strong>collègue expérimenté</strong> qui vous donne
 </span></code></pre></div>
 </blockquote>
 <h4 id="deboguer-du-code">🔹 Déboguer du code</h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vibe<span class="w"> </span><span class="s2">&quot;J’ai cette erreur : &#39;SQLSTATE[42S22]: Column not found: 1054 Unknown column &#39;user_id&#39; in &#39;where clause&#39;&#39;. Voici ma requête : SELECT * FROM users WHERE user_id = 1;&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vibe<span class="w"> </span><span class="s2">"J’ai cette erreur : 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause''. Voici ma requête : SELECT * FROM users WHERE user_id = 1;"</span>
 </span></code></pre></div>
 <p>→ Réponse :</p>
 <blockquote>
@@ -2645,14 +2645,14 @@ Une IA, c’est comme un <strong>collègue expérimenté</strong> qui vous donne
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
 </span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a> <span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a> <span class="p">{</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>     <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;app_users&#39;</span><span class="p">,</span> <span class="nx">methods</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])]</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>     <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">'/users'</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">'app_users'</span><span class="p">,</span> <span class="nx">methods</span><span class="o">:</span> <span class="p">[</span><span class="s1">'GET'</span><span class="p">])]</span>
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>     <span class="k">public</span> <span class="k">function</span> <span class="nf">listUsers</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>     <span class="p">{</span>
 </span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>         <span class="c1">// Exemple : Récupérer les utilisateurs depuis une entité User</span>
 </span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>         <span class="nv">$users</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getDoctrine</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">User</span><span class="o">::</span><span class="na">class</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
 </span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>         <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;user/list.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>             <span class="s1">&#39;users&#39;</span> <span class="o">=&gt;</span> <span class="nv">$users</span><span class="p">,</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>         <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'user/list.html.twig'</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>             <span class="s1">'users'</span> <span class="o">=&gt;</span> <span class="nv">$users</span><span class="p">,</span>
 </span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>         <span class="p">]);</span>
 </span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>     <span class="p">}</span>
 </span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a> <span class="p">}</span>
@@ -2695,21 +2695,21 @@ Inclus les annotations Doctrine et les getters/setters."</li>
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">use</span> <span class="nx">Doctrine\ORM\Mapping</span> <span class="k">as</span> <span class="nx">ORM</span><span class="p">;</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">#[</span><span class="nd">ORM\Entity</span><span class="p">]</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">#[</span><span class="nd">ORM\Table</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;products&#39;</span><span class="p">)]</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">#[</span><span class="nd">ORM\Table</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span> <span class="s1">'products'</span><span class="p">)]</span>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">class</span> <span class="nc">Product</span>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">{</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="p">#[</span><span class="nd">ORM\Id</span><span class="p">]</span>
 </span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="p">#[</span><span class="nd">ORM\GeneratedValue</span><span class="p">]</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="p">#[</span><span class="nd">ORM\Column</span><span class="p">(</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;integer&#39;</span><span class="p">)]</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="p">#[</span><span class="nd">ORM\Column</span><span class="p">(</span><span class="nx">type</span><span class="o">:</span> <span class="s1">'integer'</span><span class="p">)]</span>
 </span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="k">private</span> <span class="nx">int</span> <span class="nv">$id</span><span class="p">;</span>
 </span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="p">#[</span><span class="nd">ORM\Column</span><span class="p">(</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="nx">length</span><span class="o">:</span> <span class="mi">255</span><span class="p">)]</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="p">#[</span><span class="nd">ORM\Column</span><span class="p">(</span><span class="nx">type</span><span class="o">:</span> <span class="s1">'string'</span><span class="p">,</span> <span class="nx">length</span><span class="o">:</span> <span class="mi">255</span><span class="p">)]</span>
 </span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="k">private</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>
 </span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="p">#[</span><span class="nd">ORM\Column</span><span class="p">(</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;float&#39;</span><span class="p">)]</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="p">#[</span><span class="nd">ORM\Column</span><span class="p">(</span><span class="nx">type</span><span class="o">:</span> <span class="s1">'float'</span><span class="p">)]</span>
 </span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="k">private</span> <span class="nx">float</span> <span class="nv">$price</span><span class="p">;</span>
 </span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="p">#[</span><span class="nd">ORM\Column</span><span class="p">(</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;datetime&#39;</span><span class="p">)]</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="p">#[</span><span class="nd">ORM\Column</span><span class="p">(</span><span class="nx">type</span><span class="o">:</span> <span class="s1">'datetime'</span><span class="p">)]</span>
 </span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="k">private</span> <span class="nx">\DateTimeInterface</span> <span class="nv">$createdAt</span><span class="p">;</span>
 </span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
 </span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>    <span class="c1">// Getters et Setters</span>
@@ -2739,12 +2739,12 @@ Inclus les annotations Doctrine et les getters/setters."</li>
 <p><strong>Réponse attendue</strong> :</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="x">// Dans un Repository ou un Controller</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="x">$query = $entityManager-&gt;createQuery(</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="x">    &#39;SELECT p FROM App\Entity\Product p </span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="x">    'SELECT p FROM App\Entity\Product p </span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="x">     JOIN p.category c </span>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="x">     WHERE c.name = :categoryName </span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="x">     ORDER BY p.price DESC&#39;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="x">     ORDER BY p.price DESC'</span>
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="x">);</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="x">$query-&gt;setParameter(&#39;categoryName&#39;, &#39;Électronique&#39;);</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="x">$query-&gt;setParameter('categoryName', 'Électronique');</span>
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="x">$products = $query-&gt;getResult();</span>
 </span></code></pre></div>
 <p><strong>Explication supplémentaire</strong> :</p>
@@ -2819,7 +2819,7 @@ Inclus les annotations Doctrine et les getters/setters."</li>
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
 </span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="x">class Dog extends Animal {</span>
 </span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="x">    public function makeSound(): string {</span>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="x">        return &quot;Woof!&quot;;</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="x">        return "Woof!";</span>
 </span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="x">    }</span>
 </span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="x">}</span>
 </span></code></pre></div>
@@ -2830,7 +2830,7 @@ Inclus les annotations Doctrine et les getters/setters."</li>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="x">class FileLogger implements Loggable {</span>
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="x">    public function log(string $message): void {</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="x">        file_put_contents(&#39;log.txt&#39;, $message, FILE_APPEND);</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="x">        file_put_contents('log.txt', $message, FILE_APPEND);</span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="x">    }</span>
 </span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="x">}</span>
 </span></code></pre></div>
@@ -2846,7 +2846,7 @@ Inclus les annotations Doctrine et les getters/setters."</li>
 <li><strong>Testez toujours le code</strong> : Une IA peut faire des erreurs. <strong>Exécutez le code</strong> dans PHPStorm ou en CLI pour vérifier.</li>
 <li><strong>Comprenez avant de copier</strong> : Ne copiez pas bêtement le code généré. <strong>Lisez-le, modifiez-le, et assurez-vous de le comprendre</strong>.</li>
 <li><strong>Utilisez des commentaires</strong> : Dans PHPStorm, commentez votre code avant de demander à Vibe de le compléter.
-  <div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x"> // TODO: Créer une méthode pour calculer le prix TTC d&#39;un produit</span>
+  <div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x"> // TODO: Créer une méthode pour calculer le prix TTC d'un produit</span>
 </span></code></pre></div></li>
 <li><strong>Documentez-vous</strong> : Utilisez les réponses de Vibe comme <strong>point de départ</strong>, puis consultez la <a href="https://symfony.com/doc/current/index.html">documentation officielle de Symfony</a> ou <a href="https://www.php.net/docs.php">PHP</a>.</li>
 </ol>
@@ -2907,7 +2907,7 @@ Le code suivant génère une erreur. Utilisez Vibe pour la corriger et expliquer
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="x">    }</span>
 </span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="x">}</span>
 </span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="x">$user = new User(&quot;Alice&quot;);</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="x">$user = new User("Alice");</span>
 </span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="x">echo $user-&gt;name; // Erreur ici</span>
 </span></code></pre></div>
 <p><strong>Questions</strong> :</p>

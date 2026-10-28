@@ -1781,6 +1781,36 @@
 <td style="text-align: left;"><code>rm -rf dossier</code></td>
 <td style="text-align: left;"><code>-r</code> (récursif, pour les dossiers), <code>-f</code> (force la suppression). <strong>ATTENTION DANGER !</strong></td>
 </tr>
+<tr>
+<td style="text-align: left;"><strong><code>cat</code></strong></td>
+<td style="text-align: left;"><strong>C</strong>on<strong>cat</strong>enate. Affiche le contenu d'un fichier.</td>
+<td style="text-align: left;"><code>cat /etc/passwd</code></td>
+<td style="text-align: left;">Voir la liste des utilisateurs du système.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>nano</code></strong></td>
+<td style="text-align: left;">Éditeur de texte en ligne de commande.</td>
+<td style="text-align: left;"><code>nano fichier.txt</code></td>
+<td style="text-align: left;">Modifier le contenu d'un fichier texte.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>find</code></strong></td>
+<td style="text-align: left;">Recherche des fichiers ou répertoires selon différents critères.</td>
+<td style="text-align: left;"><code>find /var/www -name "*.html"</code></td>
+<td style="text-align: left;">Trouver tous les fichiers HTML dans <code>/var/www</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>grep</code></strong></td>
+<td style="text-align: left;">Recherche des motifs dans le contenu des fichiers.</td>
+<td style="text-align: left;"><code>grep "Erreur" /var/log/apache2/error.log</code></td>
+<td style="text-align: left;">Chercher toutes les lignes contenant "Erreur" dans le fichier de log d'Apache.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>df</code></strong></td>
+<td style="text-align: left;"><strong>D</strong>isplay <strong>F</strong>ilesystem. Affiche l'espace disque utilisé et disponible sur les systèmes de fichiers montés.</td>
+<td style="text-align: left;"><code>df -h</code></td>
+<td style="text-align: left;"><code>-h</code> pour un format lisible (en Go, Mo, etc.).</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -1834,12 +1864,12 @@
 </ul>
 </li>
 <li>
-<p><strong>Mode octal</strong> (Le plus précis pour le SISR) : On additionne les valeurs numériques ($4+2+1=7$) pour chaque catégorie.</p>
+<p><strong>Mode octal</strong> : On additionne les valeurs numériques (4+2+1=7) pour chaque catégorie.</p>
 <ul>
-<li><strong>$750$</strong> signifie :<ul>
-<li>Propriétaire : <strong>$7$</strong> (rwx)</li>
-<li>Groupe : <strong>$5$</strong> (r-x : lecture et exécution)</li>
-<li>Autres : <strong>$0$</strong> (--- : aucun droit)</li>
+<li><strong>750</strong> signifie :<ul>
+<li>Propriétaire : <strong>7</strong> (rwx)</li>
+<li>Groupe : <strong>5</strong> (r-x : lecture et exécution)</li>
+<li>Autres : <strong>0</strong> (--- : aucun droit)</li>
 </ul>
 </li>
 <li>Exemple : <code>chmod 750 mon_dossier</code></li>
@@ -1952,7 +1982,7 @@
 </table>
 <hr />
 <h3 id="5-automatisation-scripts-shell-et-planification-cron">5. Automatisation : Scripts Shell et Planification (Cron)</h3>
-<p>L'administrateur SISR doit automatiser les tâches répétitives (sauvegardes, mises à jour, nettoyage).</p>
+<p>L'administrateur système doit automatiser les tâches répétitives (sauvegardes, mises à jour, nettoyage).</p>
 <h4 id="51-ecrire-un-script-shell">5.1. Écrire un Script Shell</h4>
 <p>Un <strong>script shell</strong> est un fichier texte contenant une suite de commandes Linux qui seront exécutées séquentiellement.</p>
 <ol>
@@ -1966,16 +1996,16 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Définition des variables</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">JOUR</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d<span class="k">)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">SOURCE_DIR</span><span class="o">=</span><span class="s2">&quot;/var/www/site&quot;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">DEST_DIR</span><span class="o">=</span><span class="s2">&quot;/home/backup/web&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">SOURCE_DIR</span><span class="o">=</span><span class="s2">"/var/www/site"</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">DEST_DIR</span><span class="o">=</span><span class="s2">"/home/backup/web"</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Affichage d&#39;un message</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;--- Début de la sauvegarde du </span><span class="nv">$JOUR</span><span class="s2"> ---&quot;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Affichage d'un message</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"--- Début de la sauvegarde du </span><span class="nv">$JOUR</span><span class="s2"> ---"</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Commande de compression des données</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>tar<span class="w"> </span>-czf<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEST_DIR</span><span class="s2">/web_backup_</span><span class="nv">$JOUR</span><span class="s2">.tar.gz&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SOURCE_DIR</span><span class="s2">&quot;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>tar<span class="w"> </span>-czf<span class="w"> </span><span class="s2">"</span><span class="nv">$DEST_DIR</span><span class="s2">/web_backup_</span><span class="nv">$JOUR</span><span class="s2">.tar.gz"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$SOURCE_DIR</span><span class="s2">"</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Sauvegarde terminée et stockée dans </span><span class="nv">$DEST_DIR</span><span class="s2">&quot;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Sauvegarde terminée et stockée dans </span><span class="nv">$DEST_DIR</span><span class="s2">"</span>
 </span></code></pre></div>
 </li>
 <li>
@@ -2001,28 +2031,28 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>m</strong></td>
-<td style="text-align: left;">$0-59$</td>
+<td style="text-align: left;">0-59</td>
 <td style="text-align: left;"><strong>Minute</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>h</strong></td>
-<td style="text-align: left;">$0-23$</td>
+<td style="text-align: left;">0-23</td>
 <td style="text-align: left;"><strong>Heure</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>dom</strong></td>
-<td style="text-align: left;">$1-31$</td>
+<td style="text-align: left;">1-31</td>
 <td style="text-align: left;"><strong>Jour du Mois</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>mon</strong></td>
-<td style="text-align: left;">$1-12$</td>
+<td style="text-align: left;">1-12</td>
 <td style="text-align: left;"><strong>Mois</strong></td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>dow</strong></td>
-<td style="text-align: left;">$0-7$</td>
-<td style="text-align: left;"><strong>Jour de la Semaine</strong> ($0$ ou $7$ = dimanche)</td>
+<td style="text-align: left;">0-7</td>
+<td style="text-align: left;"><strong>Jour de la Semaine</strong> (0 ou 7 = dimanche)</td>
 </tr>
 </tbody>
 </table>

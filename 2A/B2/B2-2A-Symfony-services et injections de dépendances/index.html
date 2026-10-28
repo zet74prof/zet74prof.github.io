@@ -1744,7 +1744,7 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="x">{</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="x">    public function getHappyMessage(): string</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="x">    {</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="x">        $messages = [&#39;Bravo !&#39;, &#39;Excellent travail !&#39;, &#39;Continue comme ça !&#39;];</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="x">        $messages = ['Bravo !', 'Excellent travail !', 'Continue comme ça !'];</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="x">        $formatter = new TextFormatter(); // ⚠️ créé DANS la classe</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="x">        return $formatter-&gt;format($messages[array_rand($messages)]);</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="x">    }</span>
@@ -1803,7 +1803,7 @@
 <div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">class MessageGenerator</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="x">{</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="x">    public function __construct(</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="x">        private FormatterInterface $formatter, // n&#39;importe quelle implémentation</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="x">        private FormatterInterface $formatter, // n'importe quelle implémentation</span>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="x">    ) {</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="x">    }</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="x">}</span>
@@ -1818,7 +1818,7 @@
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="x">    public function getHappyMessage(): string</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="x">    {</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="x">        $messages = [&#39;Bravo !&#39;, &#39;Excellent travail !&#39;, &#39;Continue comme ça !&#39;];</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="x">        $messages = ['Bravo !', 'Excellent travail !', 'Continue comme ça !'];</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="x">        return $this-&gt;formatter-&gt;format($messages[array_rand($messages)]);</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="x">    }</span>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="x">}</span>
@@ -1846,10 +1846,10 @@
 </span></code></pre></div>
 <p>Ici le mock (<code>UpperCaseFormatter</code>, 5 lignes) est <strong>prévisible et sous notre contrôle</strong> : le test ne peut échouer que si <code>MessageGenerator</code> lui-même a un bug. En pratique, on utilise aussi les mocks générés par <strong>PHPUnit</strong> (<code>createMock(FormatterInterface::class)</code>), qui crée automatiquement un faux objet retournant la valeur qu'on décide :</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="x">$formatter = $this-&gt;createMock(FormatterInterface::class);</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="x">$formatter-&gt;method(&#39;format&#39;)-&gt;willReturn(&#39;OK&#39;);</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="x">$formatter-&gt;method('format')-&gt;willReturn('OK');</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="x">$generator = new MessageGenerator($formatter);</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="x">// le vrai TextFormatter n&#39;est jamais instancié</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="x">// le vrai TextFormatter n'est jamais instancié</span>
 </span></code></pre></div>
 <p><strong>Ce que l'interface nous a apporté :</strong></p>
 <table>
@@ -1892,16 +1892,16 @@
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="x">class ProductController extends AbstractController</span>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="x">{</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="x">    #[Route(&#39;/products&#39;)]</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="x">    #[Route('/products')]</span>
 </span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="x">    public function list(LoggerInterface $logger): Response</span>
 </span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="x">    {</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="x">        $logger-&gt;info(&#39;Regarde, j\&#39;utilise un service !&#39;);</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="x">        $logger-&gt;info('Regarde, j\'utilise un service !');</span>
 </span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="x">        // ...</span>
 </span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="x">    }</span>
 </span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="x">}</span>
 </span></code></pre></div>
 <p><strong>Commandes utiles pour découvrir les services disponibles :</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:autowiring<span class="w">   </span><span class="c1"># services « autowirables » (ceux qu&#39;on peut typer)</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:autowiring<span class="w">   </span><span class="c1"># services « autowirables » (ceux qu'on peut typer)</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container<span class="w">    </span><span class="c1"># TOUS les services du conteneur, avec leur id</span>
 </span></code></pre></div>
 <blockquote>
@@ -1910,11 +1910,11 @@
 <hr />
 <h2 id="4-creer-ses-propres-services">4. Créer ses propres services</h2>
 <p>Bonne pratique : sortir la logique métier du contrôleur et la mettre dans <strong>une classe de service dédiée</strong> (ex. dans <code>src/Service/</code>). Elle devient réutilisable partout.</p>
-<div class="language-php highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="x">#[Route(&#39;/products/new&#39;)]</span>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="x">#[Route('/products/new')]</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="x">public function new(MessageGenerator $messageGenerator): Response</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="x">{</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="x">    $message = $messageGenerator-&gt;getHappyMessage();</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="x">    $this-&gt;addFlash(&#39;success&#39;, $message);</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="x">    $this-&gt;addFlash('success', $message);</span>
 </span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="x">    // ...</span>
 </span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="x">}</span>
 </span></code></pre></div>
@@ -1934,7 +1934,7 @@
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="c1"># rend toutes les classes de src/ disponibles comme services</span>
 </span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nt">App\</span><span class="p">:</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../src/&#39;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">'../src/'</span>
 </span></code></pre></div>
 <ul>
 <li><strong><code>autowire: true</code></strong> : le conteneur lit les <strong>type-hints du constructeur</strong> et passe les bons services tout seul. Si ce n'est pas possible, une <strong>exception claire</strong> est levée. C'est ce qui fait « disparaître » le problème de création d'objets.</li>
@@ -1943,10 +1943,10 @@
 </ul>
 <h3 id="exclure-des-classes-du-conteneur">Exclure des classes du conteneur</h3>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="nt">App\</span><span class="p">:</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../src/&#39;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">        </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">'../src/'</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">        </span><span class="nt">exclude</span><span class="p">:</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/Entity/&#39;</span><span class="w">        </span><span class="c1"># répertoire à exclure</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/SomeFile.php&#39;</span><span class="w">   </span><span class="c1"># fichier à exclure</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'../src/Entity/'</span><span class="w">        </span><span class="c1"># répertoire à exclure</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'../src/SomeFile.php'</span><span class="w">   </span><span class="c1"># fichier à exclure</span>
 </span></code></pre></div>
 <p>Ou directement dans la classe avec un attribut PHP :</p>
 <div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x">#[Exclude]</span>
@@ -1962,9 +1962,9 @@
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="nt">bind</span><span class="p">:</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">            </span><span class="c1"># tout service ayant un argument $adminEmail recevra cette valeur</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">            </span><span class="nt">string $adminEmail</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;contact@monsite.fr&#39;</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">            </span><span class="nt">string $adminEmail</span><span class="p">:</span><span class="w"> </span><span class="s">'contact@monsite.fr'</span>
 </span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">            </span><span class="c1"># un paramètre du conteneur (%...) :</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">            </span><span class="nt">bool $debug</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;%kernel.debug%&#39;</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">            </span><span class="nt">bool $debug</span><span class="p">:</span><span class="w"> </span><span class="s">'%kernel.debug%'</span>
 </span></code></pre></div>
 <ul>
 <li><strong>Paramètres du conteneur</strong> : notés <code>%nom_du_parametre%</code> (ex. <code>%kernel.debug%</code>, <code>%env(MAILER_DSN)%</code>), ils stockent des valeurs de configuration.</li>
