@@ -1,0 +1,2148 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../B1-1A-CSharp-05-Tableaux%20et%20listes/">
+      
+      
+        <link rel="next" href="../Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que-corrige%CC%81/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>B1 1A CSharp Mini projet - zet74prof - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mini-projet-guide-2h-velosolidaire" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="zet74prof - Documentation" class="md-header__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zet74prof - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              B1 1A CSharp Mini projet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="zet74prof - Documentation" class="md-nav__button md-logo" aria-label="zet74prof - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    zet74prof - Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SIO Docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AP/AP-1A-Bases-Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP 1A Bases Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Base du développement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Base du développement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B1-1A-CSharp-01-premiers%20pas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 01 premiers pas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B1-1A-CSharp-02-variables-types-op%C3%A9rateurs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 02 variables types opérateurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B1-1A-CSharp-03-structures%20conditionnelles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 03 structures conditionnelles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B1-1A-CSharp-04-boucles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 04 boucles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../B1-1A-CSharp-05-Tableaux%20et%20listes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp 05 Tableaux et listes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp Mini projet
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 1A CSharp Mini projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mini-projet-guide-2h-velosolidaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Mini-projet guidé (2h) : « VéloSolidaire »
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Mini-projet guidé (2h) : « VéloSolidaire »">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-ateliers-de-reparation-de-lassociation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion des ateliers de réparation de l’association
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-besoin-fonctionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 Le besoin fonctionnel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deroule-guide-etapes-par-etapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Déroulé guidé — étapes par étapes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 Déroulé guidé — étapes par étapes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-0-mise-en-place-5-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 0 — Mise en place (5 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-lire-le-choix-et-gerer-les-options-invalides-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 — Lire le choix et gérer les options invalides (10 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-ajouter-un-velo-option-1-20-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 — Ajouter un vélo (option 1) (20 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-afficher-le-stock-option-2-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 — Afficher le stock (option 2) (15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-marquer-un-velo-comme-repare-option-3-20-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 — Marquer un vélo comme réparé (option 3) (20 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-vendre-un-velo-option-4-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 — Vendre un vélo (option 4) (15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-statistiques-option-5-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6 — Statistiques (option 5) (15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-7-quitter-option-6-finitions-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7 — Quitter (option 6) + finitions (10 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planning-conseille" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⏱ Planning conseillé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions-pour-les-plus-rapides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Extensions (pour les plus rapides)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grille-dauto-evaluation-du-mini-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Grille d’auto-évaluation du mini-projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1_7" id="__nav_2_2_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Epreuve semestrielle
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Epreuve semestrielle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que-corrige%CC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Corrigé : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/entrainement1-bibliothe%CC%80que/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entraînement : Application de gestion d'une bibliothèque
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/entrainement2-hopital-corrige%CC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrainement2 hopital corrigé
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/entrainement2-hopital/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Évaluation d'entraînement : Gestion des Rendez-Vous d'un Hôpital Public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Epreuve%20semestrielle/glossaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation Orientée Objet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programmation Orientée Objet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programmation%20Orient%C3%A9e%20Objet/POO-Cours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    POO Cours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programmation%20Orient%C3%A9e%20Objet/POO-TD-ParcAuto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    POO TD ParcAuto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2A
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2A
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/AP/AP-2A-SISIR-Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatisation avec Ansible pour la Réinstallation des PC sous Ubuntu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B1/B1-1A-Cours-Gestion%20de%20projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours de Gestion de Projet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B1/B1-2A-TP-Mise%20en%20place%20d%27un%20pipeline%20CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B1 2A TP Mise en place d'un pipeline CICD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B2/B2-2A-Symfony-services%20et%20injections%20de%20d%C3%A9pendances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symfony : les services et le conteneur de services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B2/B2-2A-UML-Exercices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UML: Diagramme de classes - Exercices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B2/Git-Bonnes%20pratiques%20de%20d%C3%A9veloppement%20en%20%C3%A9quipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Bonnes pratiques de développement en équipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2A/B2/Guide-vibe-coder-avec-une-ia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Guide : Vibe Coder avec une IA (Vibe) pour BTS SIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mini-projet-guide-2h-velosolidaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Mini-projet guidé (2h) : « VéloSolidaire »
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Mini-projet guidé (2h) : « VéloSolidaire »">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-ateliers-de-reparation-de-lassociation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestion des ateliers de réparation de l’association
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-besoin-fonctionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 Le besoin fonctionnel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deroule-guide-etapes-par-etapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Déroulé guidé — étapes par étapes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 Déroulé guidé — étapes par étapes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-0-mise-en-place-5-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 0 — Mise en place (5 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-lire-le-choix-et-gerer-les-options-invalides-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 — Lire le choix et gérer les options invalides (10 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-ajouter-un-velo-option-1-20-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 — Ajouter un vélo (option 1) (20 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-afficher-le-stock-option-2-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 — Afficher le stock (option 2) (15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-marquer-un-velo-comme-repare-option-3-20-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 — Marquer un vélo comme réparé (option 3) (20 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-vendre-un-velo-option-4-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 — Vendre un vélo (option 4) (15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-6-statistiques-option-5-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 6 — Statistiques (option 5) (15 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-7-quitter-option-6-finitions-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 7 — Quitter (option 6) + finitions (10 min)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planning-conseille" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⏱ Planning conseillé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions-pour-les-plus-rapides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Extensions (pour les plus rapides)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grille-dauto-evaluation-du-mini-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Grille d’auto-évaluation du mini-projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>B1 1A CSharp Mini projet</h1>
+
+<h2 id="mini-projet-guide-2h-velosolidaire"><strong>💻 Mini-projet guidé (2h) : « VéloSolidaire »</strong></h2>
+<h3 id="gestion-des-ateliers-de-reparation-de-lassociation">Gestion des ateliers de réparation de l’association</h3>
+<hr />
+<h3 id="le-besoin-fonctionnel"><strong>📖 Le besoin fonctionnel</strong></h3>
+<p>L’association <strong>VéloSolidaire</strong> organise des ateliers de réparation gratuits. Des bénévoles y récupèrent des vélos donnés, les réparent et les revendent à prix solidaire. L’association te demande une petite application <strong>console</strong> pour gérer le <strong>stock de vélos</strong> en atelier.</p>
+<p>Chaque vélo en stock est décrit par :
+- une <strong>marque</strong> (texte) ;
+- une <strong>taille de roue</strong> en pouces (nombre) ;
+- un <strong>état</strong> : <code>À réparer</code>, <code>Réparé</code>, <code>Vendu</code>.</p>
+<p><strong>Fonctionnalités attendues</strong> :
+1. Ajouter un vélo reçu (marque, taille, état initial toujours <code>À réparer</code>).
+2. Afficher tout le stock (numéroté, avec état).
+3. Marquer un vélo comme réparé (par son numéro dans la liste).
+4. Marquer un vélo comme vendu (par son numéro) — il sort alors du stock.
+5. Statistiques : nombre de vélos au total, à réparer, réparés, et taille de roue la plus fréquente… <em>(voir barème : la stat "taille fréquente" est en extension)</em>
+6. Quitter avec un récapitulatif.</p>
+<p><strong>Contraintes techniques</strong> :
+- Un vélo = un <code>string</code> au format <code>"marque|taille|état"</code> → <strong>interdit pour l’instant</strong> d’utiliser des classes ; on exploite les <strong>tableaux et listes</strong> du cours. En Séance 7 (POO), on transformera ce projet avec de vraies classes <code>Velo</code>.
+- Le stock est une <code>List&lt;string&gt;</code>.
+- Toutes les saisies sont validées (pas de plantage possible).</p>
+<hr />
+<h3 id="deroule-guide-etapes-par-etapes"><strong>🧭 Déroulé guidé — étapes par étapes</strong></h3>
+<p>Le projet est découpé en <strong>7 étapes</strong>. Le squelette de départ est fourni en Étape 0. À chaque étape : <em>objectif, indications, code attendu</em>. <strong>Compilez et testez après chaque étape !</strong></p>
+<hr />
+<h4 id="etape-0-mise-en-place-5-min"><strong>Étape 0 — Mise en place (5 min)</strong></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>dotnet<span class="w"> </span>new<span class="w"> </span>console<span class="w"> </span>-n<span class="w"> </span>VeloSolidaire
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>VeloSolidaire
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>code<span class="w"> </span>.
+</span></code></pre></div>
+<p>Remplacer le contenu de <code>Program.cs</code> par ce squelette :</p>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Program</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">continuer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">continuer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"\n===== VéloSolidaire — Stock de l'atelier ====="</span><span class="p">);</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"1. Ajouter un vélo reçu"</span><span class="p">);</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"2. Afficher le stock"</span><span class="p">);</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"3. Marquer un vélo comme réparé"</span><span class="p">);</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"4. Vendre un vélo (sortie du stock)"</span><span class="p">);</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"5. Statistiques"</span><span class="p">);</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"6. Quitter"</span><span class="p">);</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">"Choix : "</span><span class="p">);</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">            </span><span class="c1">// À COMPLÉTER aux étapes suivantes</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p><strong>Rappel utile</strong> : les actions du menu seront toutes construites sur le même modèle — <code>switch</code> (Séance 3) + <code>List&lt;string&gt;</code> (Séance 5) + <code>TryParse</code> (Séance 2).</p>
+</blockquote>
+<hr />
+<h4 id="etape-1-lire-le-choix-et-gerer-les-options-invalides-10-min"><strong>Étape 1 — Lire le choix et gérer les options invalides (10 min)</strong></h4>
+<p><strong>Objectif</strong> : la saisie du menu ne doit jamais faire planter le programme.</p>
+<p><strong>Indications</strong> :
+- Lire la saisie et la convertir avec <code>int.TryParse</code>.
+- Si la conversion échoue, afficher un message et <strong>revenir au menu</strong> (sans compter comme un choix).</p>
+<p><strong>Résultat attendu</strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="kt">int</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">(),</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">choix</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Saisie invalide, recommencez."</span><span class="p">);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">continue</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">choix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="cm">/* étape suivante */</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">6</span><span class="p">:</span><span class="w"> </span><span class="n">continuer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">default</span><span class="p">:</span><span class="w"> </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Option inconnue."</span><span class="p">);</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<strong>Test</strong> : saisir <code>abc</code>, puis <code>9</code>, puis <code>6</code> → aucun plantage, messages corrects.</p>
+<hr />
+<h4 id="etape-2-ajouter-un-velo-option-1-20-min"><strong>Étape 2 — Ajouter un vélo (option 1) (20 min)</strong></h4>
+<p><strong>Objectif</strong> : saisir marque, taille, état ; construire la chaîne <code>"marque|taille|état"</code> ; l’ajouter au stock.</p>
+<p><strong>Indications</strong> :
+- La <strong>marque</strong> : texte non vide (<code>!string.IsNullOrEmpty(marque)</code>).
+- La <strong>taille</strong> : nombre entier entre <strong>10 et 29</strong> (pouces), validé dans un <code>do-while</code> avec <code>TryParse</code>.
+- L’<strong>état</strong> : toujours <code>"À réparer"</code> à la réception (inutile de le demander).
+- Format de stockage : <code>marque + "|" + taille + "|" + "À réparer"</code>, ou avec l’interpolation : <code>$"{marque}|{taille}|À réparer"</code>.
+- Confirmer l’ajout à l’utilisateur.</p>
+<p><strong>Exemple attendu</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Marque du vélo : Peugeot
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Taille (pouces, 10-29) : 45
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Taille (pouces, 10-29) : 26
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Vélo ajouté : Peugeot | 26" | À réparer
+</span></code></pre></div></p>
+<p><strong>Questions à se poser pendant le test</strong> :
+- Que se passe-t-il si la marque est vide ? <em>(le programme doit la refuser)</em>
+- Deux vélos identiques peuvent-ils exister ? <em>(oui, c’est normal en stock)</em></p>
+<hr />
+<h4 id="etape-3-afficher-le-stock-option-2-15-min"><strong>Étape 3 — Afficher le stock (option 2) (15 min)</strong></h4>
+<p><strong>Objectif</strong> : afficher la liste <strong>numérotée</strong>, ou un message si le stock est vide.</p>
+<p><strong>Indications</strong> :
+- Si <code>stock.Count == 0</code> → afficher <em>"Le stock est vide."</em> et arrêter là.
+- Sinon, parcours avec <code>for</code> (l’index sert pour la <strong>numérotation</strong>).
+- Pour un affichage propre, remplacer les <code>|</code> par des espaces… ou plus simple : afficher la chaîne telle quelle, ou la découper avec <code>Split('|')</code> (rappel : <code>string.Split</code> découpe une chaîne en <code>string[]</code> — lien direct avec le cours sur les chaînes).</p>
+<p><strong>Exemple attendu</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>--- Stock (3 vélo(s)) ---
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1. Peugeot  26"  À réparer
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>2. Gitane   28"  Réparé
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>3. Btwin    20"  À réparer
+</span></code></pre></div></p>
+<p><strong>Variante guidée avec <code>Split</code></strong> :
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">parties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stock</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Split</span><span class="p">(</span><span class="sc">'|'</span><span class="p">);</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// parties[0] = marque, parties[1] = taille, parties[2] = état</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{i + 1}. {parties[0]}  {parties[1]}\"  {parties[2]}"</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p><strong>Test</strong> : afficher avec stock vide, puis après 1, 2, 3 ajouts.</p>
+<hr />
+<h4 id="etape-4-marquer-un-velo-comme-repare-option-3-20-min"><strong>Étape 4 — Marquer un vélo comme réparé (option 3) (20 min)</strong></h4>
+<p><strong>Objectif</strong> : changer l’état <code>À réparer</code> → <code>Réparé</code> pour un numéro de vélo saisi.</p>
+<p><strong>Indications méthodologiques</strong> (dans l’ordre) :
+1. Vérifier que le stock <strong>n’est pas vide</strong> (sinon message et arrêt de l’option).
+2. Afficher le stock (réutiliser l’affichage de l’Étape 3 — copier/coller pour l’instant ; la Séance 6 sur les méthodes réglera ce problème !).
+3. Demander un <strong>numéro</strong> (attention : l’utilisateur saisit un numéro <strong>1..N</strong>, l’index dans la liste est <strong>0..N-1</strong> → décalage !).
+4. Valider : entier entre <code>1</code> et <code>stock.Count</code>.
+5. Reconstruire la chaîne : découper avec <code>Split('|')</code>, remplacer l’état, reconstituer :
+   <div class="language-csharp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">parties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stock</span><span class="p">[</span><span class="n">index</span><span class="p">].</span><span class="n">Split</span><span class="p">(</span><span class="sc">'|'</span><span class="p">);</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">// Seulement si le vélo n'est pas déjà réparé ou vendu :</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">stock</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"{parties[0]}|{parties[1]}|Réparé"</span><span class="p">;</span>
+</span></code></pre></div>
+6. Cas particuliers à gérer : vélo <strong>déjà réparé</strong> → message d’avertissement ; vélo <strong>vendu</strong> → il n’est plus au stock, ce cas ne devrait jamais apparaître (pourquoi ? à faire justifier).</p>
+<p><strong>Exemple attendu</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>--- Stock (3 vélo(s)) ---
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>1. Peugeot  26"  À réparer
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>2. Gitane   28"  Réparé
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>3. Btwin    20"  À réparer
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>Numéro du vélo réparé : 3
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Le vélo Btwin est maintenant marqué comme réparé.
+</span></code></pre></div></p>
+<p><strong>Test</strong> : numéro invalide (<code>0</code>, <code>99</code>, <code>abc</code>), numéro valide, déjà réparé.</p>
+<hr />
+<h4 id="etape-5-vendre-un-velo-option-4-15-min"><strong>Étape 5 — Vendre un vélo (option 4) (15 min)</strong></h4>
+<p><strong>Objectif</strong> : un vélo <strong>réparé</strong> peut être vendu et <strong>sort du stock</strong>.</p>
+<p><strong>Indications</strong> :
+1. Stock vide → message.
+2. Afficher le stock.
+3. Demander le numéro (validation comme à l’Étape 4).
+4. <strong>Règle de gestion</strong> : seuls les vélos à l’état <code>Réparé</code> peuvent être vendus. Sinon → message : <em>"Ce vélo n'est pas encore réparé, il ne peut pas être vendu."</em>
+5. Si tout est bon : <code>stock.RemoveAt(index)</code> + message de confirmation <strong>avec la marque du vélo vendu</strong>.</p>
+<p><strong>Exemple attendu</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Numéro du vélo vendu : 3
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Vendu ! Le vélo Btwin quitte le stock.
+</span></code></pre></div></p>
+<p><strong>Question de conception à faire débattre</strong> (2 min en binôme) : pourquoi <code>RemoveAt</code> et pas <code>Remove</code> ? <em>(réponse : <code>Remove</code> cherche une valeur ; ici on connaît la position, et deux vélos pourraient avoir la même chaîne)</em>.</p>
+<hr />
+<h4 id="etape-6-statistiques-option-5-15-min"><strong>Étape 6 — Statistiques (option 5) (15 min)</strong></h4>
+<p><strong>Objectif</strong> : afficher le tableau de bord de l’atelier.</p>
+<p><strong>Résultat attendu</strong> :
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>--- Statistiques ---
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Vélos au total   : 5
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>À réparer        : 2
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Réparés          : 3
+</span></code></pre></div></p>
+<p><strong>Indications</strong> :
+- Parcourir le stock avec <code>foreach</code>, découper chaque chaîne avec <code>Split('|')</code>, comparer <code>parties[2]</code> à <code>"À réparer"</code> / <code>"Réparé"</code>, incrémenter des compteurs.
+- Vérifier que <code>total = aReparer + repares</code> à chaque exécution — c’est un <strong>test automatique</strong> simple de la cohérence du programme.</p>
+<hr />
+<h4 id="etape-7-quitter-option-6-finitions-10-min"><strong>Étape 7 — Quitter (option 6) + finitions (10 min)</strong></h4>
+<p><strong>Objectif</strong> : récapitulatif de sortie et relecture générale du code.</p>
+<p><strong>Indications</strong> :
+- À la sortie, afficher : <em>"L'atelier contient X vélo(s) dont Y à réparer. Au revoir !"</em> (reprendre les compteurs de l’Étape 6).
+- Relecture : noms de variables explicites ? Aucun <code>stock[x]</code> sans vérification des bornes ? Toutes les saisies passées par <code>TryParse</code> ?</p>
+<hr />
+<h3 id="planning-conseille"><strong>⏱ Planning conseillé</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Durée</th>
+<th>Cumul</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 — Projet</td>
+<td>5 min</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>1 — Menu robuste</td>
+<td>10 min</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>2 — Ajouter</td>
+<td>20 min</td>
+<td>35 min</td>
+</tr>
+<tr>
+<td>3 — Afficher</td>
+<td>15 min</td>
+<td>50 min</td>
+</tr>
+<tr>
+<td>4 — Réparer</td>
+<td>20 min</td>
+<td>1h10</td>
+</tr>
+<tr>
+<td>5 — Vendre</td>
+<td>15 min</td>
+<td>1h25</td>
+</tr>
+<tr>
+<td>6 — Stats</td>
+<td>15 min</td>
+<td>1h40</td>
+</tr>
+<tr>
+<td>7 — Fin</td>
+<td>10 min</td>
+<td><strong>1h50</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="extensions-pour-les-plus-rapides"><strong>🚀 Extensions (pour les plus rapides)</strong></h3>
+<ol>
+<li><strong>Taille de roue la plus fréquente</strong> : compter les occurrences de chaque taille (astuce : un tableau de compteurs indexé par la taille, <code>compteurs[taille]++</code>, puis recherche du max dans ce tableau).</li>
+<li><strong>Recherche par marque</strong> : option 7 — demander une marque, afficher tous les vélos correspondants (numérotés).</li>
+<li><strong>Trier le stock</strong> : afficher le stock trié par taille de roue croissante (réfléchir : trier la liste elle-même détruit l’ordre d’arrivée — vaut-il mieux trier une <strong>copie</strong> ? pourquoi ?).</li>
+<li><strong>Historique des ventes</strong> : une seconde liste <code>ventes</code> qui enregistre les vélos vendus, et une option pour l’afficher.</li>
+<li><strong>Persistance</strong> : sauvegarder le stock dans <code>stock.txt</code> à la fermeture, recharger à l’ouverture (<code>File.WriteAllLines</code> / <code>File.ReadAllLines</code>).</li>
+</ol>
+<hr />
+<h3 id="grille-dauto-evaluation-du-mini-projet"><strong>📋 Grille d’auto-évaluation du mini-projet</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Points</th>
+<th>Validé ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menu robuste (aucune saisie ne fait planter)</td>
+<td>3</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Ajout avec validation marque + taille</td>
+<td>2</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Affichage numéroté correct, gestion du stock vide</td>
+<td>2</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Réparation avec gestion du décalage numéro/index</td>
+<td>3</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Vente : règle "seulement si réparé" respectée + <code>RemoveAt</code></td>
+<td>3</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Statistiques cohérentes (total = à réparer + réparés)</td>
+<td>2</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Lisibilité : noms explicites, pas de code dupliqué <em>inutile</em></td>
+<td>2</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Extensions réalisées (au choix)</td>
+<td>+1 à +3</td>
+<td>☐</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>/18 (+3)</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
